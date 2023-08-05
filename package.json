@@ -6,7 +6,13 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "eslint \"*/*.{js,jsx,ts,tsx}\"",
+    "check-types": "tsc --pretty --noEmit",
+    "check-format": "prettier --check .",
+    "check-lint": "eslint . --ext ts --ext tsx --ext js",
+    "format": "prettier --write .",
+    "test-all": "npm run check-format && npm run check-lint && npm run check-types && npm run build",
+    "prepare": "husky install"
   },
   "dependencies": {
     "@nextui-org/button": "2.0.0",
@@ -27,7 +33,6 @@
     "autoprefixer": "10.4.14",
     "clsx": "^1.2.1",
     "convex": "^1.0.2",
-    "eslint": "8.41.0",
     "eslint-config-next": "13.4.4",
     "framer-motion": "^10.12.16",
     "intl-messageformat": "^10.1.0",
@@ -39,5 +44,13 @@
     "tailwind-variants": "^0.1.13",
     "tailwindcss": "3.3.2",
     "typescript": "5.0.4"
+  },
+  "devDependencies": {
+    "@typescript-eslint/eslint-plugin": "^6.2.1",
+    "@typescript-eslint/parser": "^6.2.1",
+    "eslint": "^8.46.0",
+    "eslint-config-prettier": "^8.10.0",
+    "prettier": "^3.0.1",
+    "husky": "^8.0.0"
   }
 }

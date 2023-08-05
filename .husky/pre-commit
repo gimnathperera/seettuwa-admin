@@ -1,42 +1,41 @@
 #!/bin/sh
 . "$(dirname "$0")/_/husky.sh"
 
-echo '🏗️👷 Styling, testing and building your project before committing'
+echo '🔍 Preparing to commit: Running code analysis and build process...'
 
-# Check Prettier standards
+# Check code formatting using Prettier
 npm run check-format ||
 (
-    echo '🤢🤮🤢🤮 Its FOKING RAW - Your styling looks disgusting. 🤢🤮🤢🤮
-            Prettier Check Failed. Run npm run format, add changes and try commit again.';
+    echo '🔴 Prettier Check Failed: Your code styling does not meet the standards.
+          Please run "npm run format", add the changes, and then reattempt the commit.';
     false;
 )
 
-# Check ESLint Standards
+# Check code quality using ESLint
 npm run check-lint ||
 (
-        echo '😤🏀👋😤 Get that weak shit out of here! 😤🏀👋😤 
-                ESLint Check Failed. Make the required changes listed above, add changes and try to commit again.'
+    echo '🔴 ESLint Check Failed: Your code contains quality issues that need to be addressed.
+          Review the listed problems, make the necessary changes, and try committing again.'
         false; 
 )
 
-# Check tsconfig standards
+# Validate TypeScript type correctness
 npm run check-types ||
 (
-    echo '🤡😂❌🤡 Failed Type check. 🤡😂❌🤡
-            Are you seriously trying to write that? Make the changes required above.'
+    echo '🔴 Type Check Failed: There are issues with the TypeScript type correctness.
+          Please resolve the indicated problems before proceeding.'
     false;
 )
 
-# If everything passes... Now we can commit
-echo '🤔🤔🤔🤔... Alright.... Code looks good to me... Trying to build now. 🤔🤔🤔🤔'
+# If all checks pass, proceed to build
+echo '🛠️ Building the project...'
 
 npm run build ||
 (
-    echo '❌👷🔨❌ Better call Bob... Because your build failed ❌👷🔨❌
-            Next build failed: View the errors above to see why. 
-    '
+    echo '🔴 Build Failed: The project failed to build properly.
+          Examine the error messages above for insights into the issues.'
     false;
 )
 
-# If everything passes... Now we can commit
-echo '✅✅✅✅ You win this time... I am committing this now. ✅✅✅✅'
+# If all checks and build pass, proceed to commit
+echo '✅ All checks passed. Committing changes...'

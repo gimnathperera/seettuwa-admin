@@ -7,7 +7,6 @@ import Sidebar from '@/components/shared/sidebar';
 import { ConvexClientProvider } from '@/providers/ConvexClientProvider';
 import { NextUIThemeProvider } from '@/providers//ThemeProvider';
 import '@/styles/globals.css';
-import Footer from '@/components/shared/footer';
 
 export const metadata: Metadata = {
   title: {
@@ -36,8 +35,12 @@ export default function RootLayout({ children }: { children: React.ReactNode }):
             <div className='relative flex flex-col h-screen'>
               <Navbar />
               <Sidebar />
-              <main className='mx-auto max-w-7xl pt-16 flex-grow'>{children}</main>
-              <Footer />
+
+              <div className='p-4 sm:ml-64 h-screen'>
+                <div className='dark:border-gray-700'>
+                  <main className='mx-auto max-w-7xl pt-16 flex-grow'>{children}</main>
+                </div>
+              </div>
             </div>
           </ConvexClientProvider>
         </NextUIThemeProvider>

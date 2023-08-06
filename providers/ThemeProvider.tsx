@@ -5,12 +5,15 @@ import { NextUIProvider } from '@nextui-org/system';
 import { ThemeProvider as NextThemesProvider } from 'next-themes';
 import { ThemeProviderProps } from 'next-themes/dist/types';
 
-export interface ProvidersProps {
+export interface NextUIThemeProviderProps {
   children: React.ReactNode;
   themeProps?: ThemeProviderProps;
 }
 
-export function Providers({ children, themeProps }: ProvidersProps): JSX.Element {
+export function NextUIThemeProvider({
+  children,
+  themeProps,
+}: NextUIThemeProviderProps): JSX.Element {
   return (
     <NextUIProvider>
       <NextThemesProvider {...themeProps}>{children}</NextThemesProvider>

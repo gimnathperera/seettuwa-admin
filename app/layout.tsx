@@ -30,11 +30,11 @@ export default function RootLayout({ children }: { children: React.ReactNode }):
     <html lang='en' suppressHydrationWarning>
       <head />
       <body className={clsx('min-h-screen bg-background font-sans antialiased', fontSans.variable)}>
-        <NextUIThemeProvider themeProps={{ attribute: 'class', defaultTheme: 'dark' }}>
+        <NextUIThemeProvider themeProps={{ attribute: 'class', defaultTheme: 'light' }}>
           <ConvexClientProvider>
             <div className='relative flex flex-col h-screen'>
               <Navbar />
-              <Sidebar />
+              <Sidebar menuItems={siteConfig.navMenuItems} />
 
               <div className='p-4 sm:ml-64 h-screen'>
                 <div className='dark:border-gray-700'>

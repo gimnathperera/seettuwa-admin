@@ -2,6 +2,7 @@
 import { baselightTheme } from '@/utils/theme/DefaultColors';
 import { ThemeProvider } from '@mui/material/styles';
 import CssBaseline from '@mui/material/CssBaseline';
+import { ConvexClientProvider } from '@/providers/ConvexClientProvider';
 
 export default function RootLayout({ children }: { children: React.ReactNode }): JSX.Element {
   return (
@@ -10,7 +11,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }):
         <ThemeProvider theme={baselightTheme}>
           {/* CssBaseline kickstart an elegant, consistent, and simple baseline to build upon. */}
           <CssBaseline />
-          {children}
+          <ConvexClientProvider>{children}</ConvexClientProvider>
         </ThemeProvider>
       </body>
     </html>

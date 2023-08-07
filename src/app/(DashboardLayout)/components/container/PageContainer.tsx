@@ -1,4 +1,3 @@
-// import { Helmet } from 'react-helmet';
 import { Helmet, HelmetProvider } from 'react-helmet-async';
 
 type Props = {

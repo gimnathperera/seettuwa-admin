@@ -44,7 +44,7 @@ const ecoCard = [
   },
 ];
 
-const Blog = (): JSX.Element => {
+const Blog = () => {
   return (
     <Grid container spacing={3}>
       {ecoCard.map((product, index) => (

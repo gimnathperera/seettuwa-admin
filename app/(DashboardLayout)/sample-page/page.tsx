@@ -1,8 +1,9 @@
 'use client';
 import { useQuery } from 'convex/react';
-import PageContainer from '@/app/(DashboardLayout)/components/container/PageContainer';
-import DashboardCard from '@/app/(DashboardLayout)/components/shared/DashboardCard';
-import { api } from '../../../../convex/_generated/api';
+import { api } from '@/convex/_generated/api';
+
+import DashboardCard from '../components/shared/DashboardCard';
+import PageContainer from '../components/container/PageContainer';
 
 const SamplePage = (): any => {
   const tasks = useQuery(api.tasks.get) || [];

@@ -2,11 +2,10 @@
 // import { useQuery } from 'convex/react';
 // import { api } from '@/convex/_generated/api';
 
-import DashboardCard from '../../components/shared/ContentWrapper';
+import TableOuterCard from '../../components/shared/TableOuterCard';
 import PageContainer from '../../components/container/PageContainer';
-import { Button, Grid, IconButton } from '@mui/material';
+import { Button, Grid, Typography } from '@mui/material';
 import CustomizedTables from '../../components/random';
-import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
 
 const SamplePage = (): any => {
   // const tasks = useQuery(api.tasks.get) || [];
@@ -15,21 +14,20 @@ const SamplePage = (): any => {
     <PageContainer title='Users' description='Public users'>
       <Grid container flexDirection='column' gap={3}>
         <Grid item xs={12}>
-          <DashboardCard
-            title='Search Criteria'
-            action={
-              <IconButton>
-                <KeyboardArrowDownIcon />
-              </IconButton>
-            }
-          />
+          <Grid container flex='row' justifyContent='space-between' alignItems='center'>
+            <Grid item>
+              <Typography variant='h4' color='textSecondary'>
+                Public Users
+              </Typography>
+            </Grid>
+            <Grid item>
+              <Button variant='contained'>Create a new user</Button>
+            </Grid>
+          </Grid>
         </Grid>
+
         <Grid item xs={12}>
-          <DashboardCard
-            title='Public Users'
-            action={<Button variant='contained'>New User</Button>}
-            middleContent={<CustomizedTables />}
-          />
+          <TableOuterCard middleContent={<CustomizedTables />} />
         </Grid>
       </Grid>
     </PageContainer>

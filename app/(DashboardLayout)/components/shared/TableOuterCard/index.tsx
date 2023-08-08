@@ -9,7 +9,6 @@ type Props = {
   cardHeading?: string | JSX.Element;
   headTitle?: string | JSX.Element;
   headSubtitle?: string | JSX.Element;
-
   middleContent?: string | JSX.Element;
 };
 
@@ -22,7 +21,7 @@ const StyledCardHeader = styled(CardHeader)(() => ({
 }));
 
 const StyledCardContent = styled(CardContent)(() => ({
-  padding: '0px 24px 24px 24px !important',
+  padding: '24px !important',
 }));
 
 const DashboardCard = ({ title, action, middleContent }: Props): JSX.Element => {

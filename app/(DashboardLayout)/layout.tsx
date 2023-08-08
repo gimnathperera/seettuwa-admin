@@ -20,7 +20,7 @@ const PageWrapper = styled('div')(() => ({
 }));
 
 const StyledContainer = styled(Container)(({ theme }) => ({
-  paddingTop: theme.spacing(3),
+  paddingTop: theme.spacing(6),
   maxWidth: '90% !important',
 }));
 

@@ -28,10 +28,13 @@ const StyledCardContent = styled(CardContent)(() => ({
 const DashboardCard = ({ title, action, middleContent }: Props): JSX.Element => {
   return (
     <StyledCard elevation={0}>
-      <StyledCardHeader
-        title={typeof title === 'string' ? <Typography variant='h5'>{title}</Typography> : title}
-        action={action}
-      />
+      {title || action ? (
+        <StyledCardHeader
+          title={typeof title === 'string' ? <Typography variant='h5'>{title}</Typography> : title}
+          action={action}
+        />
+      ) : null}
+
       {middleContent ? <StyledCardContent>{middleContent}</StyledCardContent> : null}
     </StyledCard>
   );

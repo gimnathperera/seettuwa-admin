@@ -27,7 +27,7 @@ const SamplePage = (): any => {
         <Grid item xs={12}>
           <DashboardCard
             title='Public Users'
-            action={<Button variant='contained'>Create New User</Button>}
+            action={<Button variant='contained'>New User</Button>}
             middleContent={<CustomizedTables />}
           />
         </Grid>

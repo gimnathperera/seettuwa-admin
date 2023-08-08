@@ -1,4 +1,4 @@
-import React from 'react';
+import styled from '@emotion/styled';
 import { Card, CardContent, Typography, Stack, Box } from '@mui/material';
 
 type Props = {
@@ -6,12 +6,16 @@ type Props = {
   subtitle?: string;
   action?: JSX.Element | any;
   footer?: JSX.Element;
-  cardheading?: string | JSX.Element;
-  headtitle?: string | JSX.Element;
-  headsubtitle?: string | JSX.Element;
+  cardHeading?: string | JSX.Element;
+  headTitle?: string | JSX.Element;
+  headSubtitle?: string | JSX.Element;
   children?: JSX.Element;
-  middlecontent?: string | JSX.Element;
+  middleContent?: string | JSX.Element;
 };
+
+const StyledCard = styled(Card)(() => ({
+  borderRadius: '20px',
+}));
 
 const DashboardCard = ({
   title,
@@ -19,18 +23,18 @@ const DashboardCard = ({
   children,
   action,
   footer,
-  cardheading,
-  headtitle,
-  headsubtitle,
-  middlecontent,
+  cardHeading,
+  headTitle,
+  headSubtitle,
+  middleContent,
 }: Props): JSX.Element => {
   return (
-    <Card sx={{ padding: 0 }} elevation={9} variant={undefined}>
-      {cardheading ? (
+    <StyledCard elevation={0}>
+      {cardHeading ? (
         <CardContent>
-          <Typography variant='h5'>{headtitle}</Typography>
+          <Typography variant='h5'>{headTitle}</Typography>
           <Typography variant='subtitle2' color='textSecondary'>
-            {headsubtitle}
+            {headSubtitle}
           </Typography>
         </CardContent>
       ) : (
@@ -62,9 +66,9 @@ const DashboardCard = ({
         </CardContent>
       )}
 
-      {middlecontent}
+      {middleContent}
       {footer}
-    </Card>
+    </StyledCard>
   );
 };
 

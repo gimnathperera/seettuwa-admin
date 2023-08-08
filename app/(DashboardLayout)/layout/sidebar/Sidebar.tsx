@@ -1,7 +1,6 @@
 import { useMediaQuery, Box, Drawer } from '@mui/material';
 import Logo from '../shared/logo/Logo';
 import SidebarItems from './SidebarItems';
-import { Upgrade } from './Updrade';
 
 interface ItemType {
   isMobileSidebarOpen: boolean;
@@ -22,9 +21,6 @@ const Sidebar = ({ isMobileSidebarOpen, onSidebarClose, isSidebarOpen }: ItemTyp
           flexShrink: 0,
         }}
       >
-        {/* ------------------------------------------- */}
-        {/* Sidebar for desktop */}
-        {/* ------------------------------------------- */}
         <Drawer
           anchor='left'
           open={isSidebarOpen}
@@ -36,26 +32,16 @@ const Sidebar = ({ isMobileSidebarOpen, onSidebarClose, isSidebarOpen }: ItemTyp
             },
           }}
         >
-          {/* ------------------------------------------- */}
-          {/* Sidebar Box */}
-          {/* ------------------------------------------- */}
           <Box
             sx={{
               height: '100%',
             }}
           >
-            {/* ------------------------------------------- */}
-            {/* Logo */}
-            {/* ------------------------------------------- */}
             <Box px={3}>
               <Logo />
             </Box>
             <Box>
-              {/* ------------------------------------------- */}
-              {/* Sidebar Items */}
-              {/* ------------------------------------------- */}
               <SidebarItems />
-              <Upgrade />
             </Box>
           </Box>
         </Drawer>
@@ -76,17 +62,11 @@ const Sidebar = ({ isMobileSidebarOpen, onSidebarClose, isSidebarOpen }: ItemTyp
         },
       }}
     >
-      {/* ------------------------------------------- */}
-      {/* Logo */}
-      {/* ------------------------------------------- */}
       <Box px={2}>
         <Logo />
       </Box>
-      {/* ------------------------------------------- */}
-      {/* Sidebar For Mobile */}
-      {/* ------------------------------------------- */}
+
       <SidebarItems />
-      <Upgrade />
     </Drawer>
   );
 };

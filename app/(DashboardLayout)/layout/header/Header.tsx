@@ -1,5 +1,5 @@
 import React from 'react';
-import { Box, AppBar, Toolbar, styled, Stack, IconButton, Badge } from '@mui/material';
+import { Box, AppBar, Toolbar, styled, Stack, IconButton, Badge, Typography } from '@mui/material';
 import PropTypes from 'prop-types';
 
 // components
@@ -44,6 +44,14 @@ const Header = ({ toggleMobileSidebar }: ItemType): JSX.Element => {
         >
           <IconMenu width='20' height='20' />
         </IconButton>
+
+        <Box>
+          <Typography variant='h5'>User Management / Users</Typography>
+
+          <Typography variant='subtitle2' color='textSecondary'>
+            Public users
+          </Typography>
+        </Box>
 
         <Box flexGrow={1} />
         <Stack spacing={1} direction='row' alignItems='center'>

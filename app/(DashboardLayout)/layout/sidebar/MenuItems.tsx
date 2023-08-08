@@ -24,6 +24,17 @@ const Menuitems = [
   },
   {
     navlabel: true,
+    subheader: 'User Management',
+  },
+
+  {
+    id: uniqueId(),
+    title: 'Users',
+    icon: IconTypography,
+    href: '/user-management/users',
+  },
+  {
+    navlabel: true,
     subheader: 'Utilities',
   },
   {

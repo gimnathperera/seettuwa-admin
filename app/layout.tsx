@@ -9,7 +9,6 @@ export default function RootLayout({ children }: { children: React.ReactNode }):
     <html lang='en'>
       <body>
         <ThemeProvider theme={baselightTheme}>
-          {/* CssBaseline kickstart an elegant, consistent, and simple baseline to build upon. */}
           <CssBaseline />
           <ConvexClientProvider>{children}</ConvexClientProvider>
         </ThemeProvider>

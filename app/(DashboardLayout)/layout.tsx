@@ -16,7 +16,12 @@ const PageWrapper = styled('div')(() => ({
   paddingBottom: '60px',
   flexDirection: 'column',
   zIndex: 1,
-  backgroundColor: 'transparent',
+  backgroundColor: '#f4f7f9',
+}));
+
+const StyledContainer = styled(Container)(({ theme }) => ({
+  paddingTop: theme.spacing(3),
+  maxWidth: '90% !important',
 }));
 
 interface Props {
@@ -28,40 +33,19 @@ export default function RootLayout({ children }: Props): JSX.Element {
   const [isMobileSidebarOpen, setMobileSidebarOpen] = useState(false);
 
   return (
-    <MainWrapper className='mainwrapper'>
-      {/* ------------------------------------------- */}
-      {/* Sidebar */}
-      {/* ------------------------------------------- */}
+    <MainWrapper>
       <Sidebar
         isSidebarOpen={true}
         isMobileSidebarOpen={isMobileSidebarOpen}
         onSidebarClose={(): void => setMobileSidebarOpen(false)}
       />
-      {/* ------------------------------------------- */}
-      {/* Main Wrapper */}
-      {/* ------------------------------------------- */}
-      <PageWrapper className='page-wrapper'>
-        {/* ------------------------------------------- */}
-        {/* Header */}
-        {/* ------------------------------------------- */}
+
+      <PageWrapper>
         <Header toggleMobileSidebar={(): void => setMobileSidebarOpen(true)} />
-        {/* ------------------------------------------- */}
-        {/* PageContent */}
-        {/* ------------------------------------------- */}
-        <Container
-          sx={{
-            paddingTop: '20px',
-            maxWidth: '1200px',
-          }}
-        >
-          {/* ------------------------------------------- */}
-          {/* Page Route */}
-          {/* ------------------------------------------- */}
+
+        <StyledContainer>
           <Box sx={{ minHeight: 'calc(100vh - 170px)' }}>{children}</Box>
-          {/* ------------------------------------------- */}
-          {/* End Page */}
-          {/* ------------------------------------------- */}
-        </Container>
+        </StyledContainer>
       </PageWrapper>
     </MainWrapper>
   );

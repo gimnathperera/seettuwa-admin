@@ -26,7 +26,7 @@ const StyledCardContent = styled(CardContent)(() => ({
 
 const DashboardCard = ({ title, action, middleContent }: Props): JSX.Element => {
   return (
-    <StyledCard elevation={0}>
+    <StyledCard elevation={0} sx={{ overflow: 'auto', width: { xs: '316px', sm: 'auto' } }}>
       {title || action ? (
         <StyledCardHeader
           title={typeof title === 'string' ? <Typography variant='h5'>{title}</Typography> : title}

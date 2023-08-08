@@ -1,10 +1,11 @@
 import React from 'react';
-import { Box, AppBar, Toolbar, styled, Stack, IconButton, Badge, Typography } from '@mui/material';
+import { Box, AppBar, Toolbar, styled, Stack, IconButton, Badge } from '@mui/material';
 import PropTypes from 'prop-types';
 
 // components
 import Profile from './Profile';
 import { IconBellRinging, IconMenu } from '@tabler/icons-react';
+import Breadcrumb from '../../components/shared/BreadCrumb';
 
 interface ItemType {
   toggleMobileSidebar: (event: React.MouseEvent<HTMLElement>) => void;
@@ -46,11 +47,7 @@ const Header = ({ toggleMobileSidebar }: ItemType): JSX.Element => {
         </IconButton>
 
         <Box>
-          <Typography variant='h5'>User Management / Users</Typography>
-
-          <Typography variant='subtitle2' color='textSecondary'>
-            Public users
-          </Typography>
+          <Breadcrumb />
         </Box>
 
         <Box flexGrow={1} />

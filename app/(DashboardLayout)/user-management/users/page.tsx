@@ -6,6 +6,7 @@ import TableOuterCard from '../../components/shared/TableOuterCard';
 import PageContainer from '../../components/container/PageContainer';
 import { Button, Grid, Typography } from '@mui/material';
 import CustomizedTables from '../../components/random';
+import TableFilterBar from '../../components/shared/TableFilterBar';
 
 const SamplePage = (): any => {
   // const tasks = useQuery(api.tasks.get) || [];
@@ -24,6 +25,10 @@ const SamplePage = (): any => {
               <Button variant='contained'>Create a new user</Button>
             </Grid>
           </Grid>
+        </Grid>
+
+        <Grid item xs={12}>
+          <TableFilterBar />
         </Grid>
 
         <Grid item xs={12}>

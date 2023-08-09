@@ -6,7 +6,7 @@ import TableOuterCard from '../../components/shared/TableOuterCard';
 import PageContainer from '../../components/container/PageContainer';
 import { Button, Grid, Typography } from '@mui/material';
 import CustomizedTables from '../../components/random';
-import TableFilterBar from '../../components/shared/TableFilterBar';
+import TableFilterBar from '../../components/shared/table-filter-search-bar';
 
 const SamplePage = (): any => {
   // const tasks = useQuery(api.tasks.get) || [];

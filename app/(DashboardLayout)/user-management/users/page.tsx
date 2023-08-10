@@ -28,7 +28,32 @@ const SamplePage = (): any => {
         </Grid>
 
         <Grid item xs={12}>
-          <TableFilterBar />
+          <TableFilterBar
+            searchOptions={[
+              { key: 'Name', value: 'name' },
+              { key: 'Email', value: 'email' },
+            ]}
+            filterOptions={[
+              {
+                filterKey: { key: 'Status', value: 'status' },
+                filterOptions: [
+                  { key: 'Active', value: 'active' },
+                  { key: 'Inactive', value: 'inactive' },
+                  { key: 'Pending', value: 'pending' },
+                ],
+                filterType: 'SELECT',
+              },
+              {
+                filterKey: { key: 'Role', value: 'role' },
+                filterOptions: [
+                  { key: 'Admin', value: 'admin' },
+                  { key: 'Owner', value: 'owner' },
+                  { key: 'Visitor', value: 'visitor' },
+                ],
+                filterType: 'SELECT',
+              },
+            ]}
+          />
         </Grid>
 
         <Grid item xs={12}>

@@ -11,11 +11,30 @@ import {
   Typography,
 } from '@mui/material';
 
-type Props = {};
+export interface SelectOption {
+  key: string;
+  value: string;
+}
 
-const FilterBy = ({}: Props): JSX.Element => {
+export interface Filter {
+  filterKey: SelectOption;
+  filterOptions: SelectOption[];
+  filterType?: 'SELECT' | 'INPUT' | 'DATE' | 'DATE_RANGE';
+}
+
+interface FilterBy {
+  filterKey: string;
+  filterValue: string;
+}
+
+interface Props {
+  filters: Filter[];
+  onFilterBy: (filterBy: FilterBy) => void;
+}
+
+const FilterBy = ({ filters, onFilterBy }: Props): JSX.Element => {
   const [anchorEl, setAnchorEl] = useState<HTMLButtonElement | null>(null);
-  const [filterKey, setFilterKey] = useState('');
+  const [selectedFilter, setSelectedFilter] = useState<Filter>(filters?.[0]);
   const [filterValue, setFilterValue] = useState('');
 
   const open = Boolean(anchorEl);
@@ -30,11 +49,25 @@ const FilterBy = ({}: Props): JSX.Element => {
   };
 
   const handleFilterKeyChange = (event: SelectChangeEvent): void => {
-    setFilterKey(event.target.value);
+    const selectedFilter = filters?.find(
+      ({ filterKey: { value } }: Filter) => value === event.target.value,
+    );
+    selectedFilter && setSelectedFilter(selectedFilter);
   };
 
   const handleFilterValueChange = (event: SelectChangeEvent): void => {
     setFilterValue(event.target.value);
+  };
+
+  const handleOnFilterByClick = (): void => {
+    onFilterBy({ filterKey: selectedFilter?.filterKey?.value, filterValue });
+    handleFilterClose();
+    resetFilter();
+  };
+
+  const resetFilter = (): void => {
+    setSelectedFilter(filters?.[0]);
+    setFilterValue('');
   };
 
   return (
@@ -60,33 +93,40 @@ const FilterBy = ({}: Props): JSX.Element => {
             <Select
               labelId='demo-select-small-label'
               id='demo-select-small'
-              value={filterKey}
+              value={selectedFilter?.filterKey?.value}
               onChange={handleFilterKeyChange}
             >
               <MenuItem value=''>
                 <em>None</em>
               </MenuItem>
-              <MenuItem value={10}>Status</MenuItem>
-              <MenuItem value={20}>Role</MenuItem>
+              {filters?.map(({ filterKey: { key, value } }: Filter) => (
+                <MenuItem value={value} key={key}>
+                  {key}
+                </MenuItem>
+              ))}
             </Select>
           </FormControl>
+
           <FormControl size='small'>
             <Select
               labelId='demo-select-small-label'
               id='demo-select-small'
               value={filterValue}
               onChange={handleFilterValueChange}
+              disabled={!selectedFilter?.filterOptions?.length}
             >
               <MenuItem value=''>
                 <em>None</em>
               </MenuItem>
-              <MenuItem value={10}>Active</MenuItem>
-              <MenuItem value={20}>Inactive</MenuItem>
-              <MenuItem value={20}>Pending</MenuItem>
+              {selectedFilter?.filterOptions?.map(({ key, value }: SelectOption) => (
+                <MenuItem value={value} key={key}>
+                  {key}
+                </MenuItem>
+              ))}
             </Select>
           </FormControl>
 
-          <Button variant='contained' size='small'>
+          <Button variant='contained' size='small' onClick={handleOnFilterByClick}>
             Apply filter
           </Button>
         </FilterContainer>

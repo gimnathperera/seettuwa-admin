@@ -1,7 +1,6 @@
 import Paper from '@mui/material/Paper';
 import IconButton from '@mui/material/IconButton';
 import Divider from '@mui/material/Divider';
-import InputBase from '@mui/material/InputBase';
 import styled from '@emotion/styled';
 
 export const SearchBarContainer = styled(Paper)(() => ({
@@ -20,9 +19,4 @@ export const StyledIconButton = styled(IconButton)(() => ({
 export const StyledDivider = styled(Divider)(() => ({
   height: 28,
   margin: '6px',
-}));
-
-export const SearchInput = styled(InputBase)(() => ({
-  marginLeft: '2px',
-  flex: 1,
 }));

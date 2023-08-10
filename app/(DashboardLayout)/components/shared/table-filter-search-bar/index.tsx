@@ -1,37 +1,81 @@
-import SearchIcon from '@mui/icons-material/Search';
 import PrintIcon from '@mui/icons-material/Print';
-import { SearchBarContainer, SearchInput, StyledDivider, StyledIconButton } from './index.styles';
-import FilterBy from './filter-by';
+import { SearchBarContainer, StyledDivider, StyledIconButton } from './index.styles';
+import FilterBy, { Filter, SelectOption } from './filter-by';
 import SearchBy from './search-by';
 import { Grid } from '@mui/material';
 import AppliedFilters from './applied-filters';
+import { useState } from 'react';
 
-const TableFilterBar = (): JSX.Element => {
+export interface SearchParam {
+  key: string;
+  value: string;
+}
+
+interface Props {
+  placeholder?: string;
+  onPrint?: () => void;
+  searchOptions: SelectOption[];
+  filterOptions?: Filter[];
+}
+
+const TableFilterBar = ({
+  placeholder,
+  onPrint,
+  searchOptions,
+  filterOptions,
+}: Props): JSX.Element => {
+  const [searchParams, setSearchParams] = useState<SearchParam[]>([]);
+
+  const handlePrintButtonClick = (): void => {
+    if (onPrint && typeof onPrint === 'function') {
+      onPrint();
+    } else {
+      window.print();
+    }
+  };
+
+  const handleAddFilterByParam = ({ filterKey, filterValue }: FilterBy): void => {
+    setSearchParams(prevSearchParams => [
+      ...prevSearchParams,
+      { key: filterKey, value: filterValue },
+    ]);
+  };
+  const handleAddSearchByParam = ({ searchKey, searchValue }: SearchBy): void => {
+    setSearchParams(prevSearchParams => [
+      ...prevSearchParams,
+      { key: searchKey, value: searchValue },
+    ]);
+  };
+
   return (
     <Grid container spacing={2}>
       <Grid item xs={12}>
         <SearchBarContainer>
-          <FilterBy />
+          {filterOptions?.length ? (
+            <>
+              <FilterBy filters={filterOptions} onFilterBy={handleAddFilterByParam} />
+              <StyledDivider orientation='vertical' />
+            </>
+          ) : null}
+
+          <SearchBy
+            searchOptions={searchOptions}
+            placeholder={placeholder}
+            onSearchBy={handleAddSearchByParam}
+          />
+
           <StyledDivider orientation='vertical' />
 
-          <StyledIconButton>
-            <SearchIcon />
-          </StyledIconButton>
-
-          <SearchInput placeholder='Search public users' />
-
-          <SearchBy />
-
-          <StyledDivider orientation='vertical' />
-
-          <StyledIconButton>
+          <StyledIconButton onClick={handlePrintButtonClick}>
             <PrintIcon />
           </StyledIconButton>
         </SearchBarContainer>
       </Grid>
-      <Grid item xs={12}>
-        <AppliedFilters />
-      </Grid>
+      {searchParams?.length ? (
+        <Grid item xs={12}>
+          <AppliedFilters searchParams={searchParams} />
+        </Grid>
+      ) : null}
     </Grid>
   );
 };

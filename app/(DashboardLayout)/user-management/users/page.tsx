@@ -29,6 +29,7 @@ const SamplePage = (): any => {
 
         <Grid item xs={12}>
           <TableFilterBar
+            placeholder='Search public users'
             searchOptions={[
               { key: 'Name', value: 'name' },
               { key: 'Email', value: 'email' },

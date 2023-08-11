@@ -13,17 +13,23 @@ export interface SearchParam {
 
 interface Props {
   placeholder?: string;
-  onPrint?: () => void;
   searchOptions: SelectOption[];
   filterOptions?: Filter[];
+  onPrint?: () => void;
 }
 
-const TableFilterBar = ({
+{
+  /* TODO: Known issues: restrict user from adding same filter twice
+Add different filter types (e.g. date range, number range, etc.)
+*/
+}
+
+const TableFilterBar: React.FC<Props> = ({
   placeholder,
-  onPrint,
   searchOptions,
   filterOptions,
-}: Props): JSX.Element => {
+  onPrint,
+}): JSX.Element => {
   const [searchParams, setSearchParams] = useState<SearchParam[]>([]);
 
   const handlePrintButtonClick = (): void => {
@@ -40,6 +46,7 @@ const TableFilterBar = ({
       { key: filterKey, value: filterValue },
     ]);
   };
+
   const handleAddSearchByParam = ({ searchKey, searchValue }: SearchBy): void => {
     setSearchParams(prevSearchParams => [
       ...prevSearchParams,
@@ -47,9 +54,9 @@ const TableFilterBar = ({
     ]);
   };
 
-  const handleRemoveSearchParam = (searchParam: SearchParam): void => {
+  const handleRemoveSearchParam = (paramToRemove: SearchParam): void => {
     setSearchParams(prevSearchParams =>
-      prevSearchParams.filter(param => param.value !== searchParam.value),
+      prevSearchParams.filter(param => param.value !== paramToRemove.value),
     );
   };
 

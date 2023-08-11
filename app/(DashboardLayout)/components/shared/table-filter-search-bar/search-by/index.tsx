@@ -31,6 +31,7 @@ const SearchBy = ({ searchOptions, placeholder, onSearchBy }: Props): JSX.Elemen
   };
 
   const handleOnSearchByClick = (searchBy: SearchBy): void => {
+    if (!searchBy.searchKey || !searchBy.searchValue) return;
     onSearchBy(searchBy);
     resetSearchBy();
   };

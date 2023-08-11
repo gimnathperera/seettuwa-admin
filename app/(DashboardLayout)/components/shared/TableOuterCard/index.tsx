@@ -1,5 +1,5 @@
-import styled from '@emotion/styled';
-import { Card, CardContent, Typography, CardHeader } from '@mui/material';
+import { Typography } from '@mui/material';
+import { StyledCard, StyledCardContent, StyledCardHeader } from './style';
 
 type Props = {
   title?: string | JSX.Element;
@@ -11,18 +11,6 @@ type Props = {
   headSubtitle?: string | JSX.Element;
   middleContent?: string | JSX.Element;
 };
-
-const StyledCard = styled(Card)(() => ({
-  borderRadius: '20px',
-}));
-
-const StyledCardHeader = styled(CardHeader)(() => ({
-  padding: '30px',
-}));
-
-const StyledCardContent = styled(CardContent)(() => ({
-  padding: '24px !important',
-}));
 
 const DashboardCard = ({ title, action, middleContent }: Props): JSX.Element => {
   return (

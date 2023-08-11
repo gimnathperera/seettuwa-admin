@@ -47,6 +47,12 @@ const TableFilterBar = ({
     ]);
   };
 
+  const handleRemoveSearchParam = (searchParam: SearchParam): void => {
+    setSearchParams(prevSearchParams =>
+      prevSearchParams.filter(param => param.value !== searchParam.value),
+    );
+  };
+
   return (
     <Grid container spacing={2}>
       <Grid item xs={12}>
@@ -73,7 +79,7 @@ const TableFilterBar = ({
       </Grid>
       {searchParams?.length ? (
         <Grid item xs={12}>
-          <AppliedFilters searchParams={searchParams} />
+          <AppliedFilters searchParams={searchParams} onDelete={handleRemoveSearchParam} />
         </Grid>
       ) : null}
     </Grid>

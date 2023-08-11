@@ -19,12 +19,15 @@ interface Props {
 }
 
 {
-  /* TODO: Known issues: restrict user from adding same filter twice
-Add different filter types (e.g. date range, number range, etc.)
+  /* TODO: Known issues: 
+restrict user from adding same filter twice
+Add different filter types (e.g. date range, number range, etc.
+Ability to add searchBy value by pressing enter  
+  )
 */
 }
 
-const TableFilterBar: React.FC<Props> = ({
+const DataTable: React.FC<Props> = ({
   placeholder,
   searchOptions,
   filterOptions,
@@ -93,4 +96,4 @@ const TableFilterBar: React.FC<Props> = ({
   );
 };
 
-export default TableFilterBar;
+export default DataTable;

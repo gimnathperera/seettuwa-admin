@@ -109,7 +109,7 @@ const baselightTheme = createTheme({
       lineHeight: '1.334rem',
     },
     body2: {
-      fontSize: '0.75rem',
+      fontSize: '0.8rem',
       letterSpacing: '0rem',
       fontWeight: 400,
       lineHeight: '1rem',
@@ -136,6 +136,14 @@ const baselightTheme = createTheme({
       styleOverrides: {
         root: {
           borderRadius: '7px',
+        },
+      },
+    },
+    MuiIconButton: {
+      styleOverrides: {
+        root: {
+          padding: '8px',
+          borderRadius: '12px',
         },
       },
     },

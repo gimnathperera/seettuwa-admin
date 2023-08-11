@@ -4,10 +4,12 @@
 
 import TableOuterCard from '../../components/shared/TableOuterCard';
 import PageContainer from '../../components/container/PageContainer';
-import { Button, Grid, Typography } from '@mui/material';
+import { Box, Button, Grid, IconButton, Typography } from '@mui/material';
 import TableFilterBar from '../../components/shared/table-filter-search-bar';
 import DataTable from '../../components/shared/data-table';
-import { GridColDef, GridValueGetterParams } from '@mui/x-data-grid';
+import { GridColDef, GridValueGetterParams, useGridApiRef } from '@mui/x-data-grid';
+import EditIcon from '@mui/icons-material/Edit';
+import DeleteIcon from '@mui/icons-material/Delete';
 
 const columns: GridColDef[] = [
   { field: 'id', headerName: 'ID', flex: 1 },
@@ -33,6 +35,23 @@ const columns: GridColDef[] = [
     valueGetter: (params: GridValueGetterParams) =>
       `${params.row.firstName || ''} ${params.row.lastName || ''}`,
   },
+  {
+    flex: 1,
+    field: 'actions',
+    headerName: 'Actions',
+    renderCell: (): JSX.Element => {
+      return (
+        <Box flexDirection='row'>
+          <IconButton size='small'>
+            <EditIcon />
+          </IconButton>
+          <IconButton size='small'>
+            <DeleteIcon />
+          </IconButton>
+        </Box>
+      );
+    },
+  },
 ];
 
 const rows = [
@@ -49,6 +68,7 @@ const rows = [
 
 const Users: React.FC = () => {
   // const tasks = useQuery(api.tasks.get) || [];
+  const gridApiRef = useGridApiRef();
 
   return (
     <PageContainer title='Users' description='Public users'>
@@ -97,7 +117,19 @@ const Users: React.FC = () => {
         </Grid>
 
         <Grid item xs={12}>
-          <TableOuterCard middleContent={<DataTable columns={columns} rows={rows} />} />
+          <TableOuterCard
+            middleContent={
+              <DataTable
+                columns={columns}
+                rows={rows}
+                serverSidePagination={{
+                  rowCount: 0,
+                  onPaginationModelChange: () => console.log('onPaginationModelChange'),
+                }}
+                gridApiRef={gridApiRef}
+              />
+            }
+          />
         </Grid>
       </Grid>
     </PageContainer>

@@ -7,7 +7,7 @@ import PageContainer from '../../components/container/PageContainer';
 import { Button, Grid, Typography } from '@mui/material';
 import TableFilterBar from '../../components/shared/table-filter-search-bar';
 import DataTable from '../../components/shared/data-table';
-import { GridColDef, GridValueGetterParams } from '@mui/x-data-grid';
+import { GridColDef, GridValueGetterParams, useGridApiRef } from '@mui/x-data-grid';
 
 const columns: GridColDef[] = [
   { field: 'id', headerName: 'ID', flex: 1 },
@@ -49,6 +49,7 @@ const rows = [
 
 const Users: React.FC = () => {
   // const tasks = useQuery(api.tasks.get) || [];
+  const gridApiRef = useGridApiRef();
 
   return (
     <PageContainer title='Users' description='Public users'>
@@ -97,7 +98,19 @@ const Users: React.FC = () => {
         </Grid>
 
         <Grid item xs={12}>
-          <TableOuterCard middleContent={<DataTable columns={columns} rows={rows} />} />
+          <TableOuterCard
+            middleContent={
+              <DataTable
+                columns={columns}
+                rows={rows}
+                serverSidePagination={{
+                  rowCount: 0,
+                  onPaginationModelChange: () => console.log('onPaginationModelChange'),
+                }}
+                gridApiRef={gridApiRef}
+              />
+            }
+          />
         </Grid>
       </Grid>
     </PageContainer>

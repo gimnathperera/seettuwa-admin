@@ -10,11 +10,14 @@ export const DataGridStyled = styled(DataGrid)<DataGridStyledProps>(
     '& .MuiDataGrid-columnHeaders': {
       backgroundColor: headerBackgroundColor || '#F6FAFF',
     },
-    '&.borderlessGrid .MuiDataGrid-cell': {
-      borderBottom: '1px solid #e0e0e0',
-    },
     '& .MuiDataGrid-columnHeaderTitle': {
       fontWeight: 'bold',
+    },
+    '& .MuiDataGrid-cell:focus': {
+      outline: 'none',
+    },
+    '& .MuiDataGrid-cell:focus-within': {
+      outline: 'none',
     },
   }),
 );

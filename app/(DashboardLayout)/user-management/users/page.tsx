@@ -7,7 +7,7 @@ import { GridColDef, GridValueGetterParams, useGridApiRef } from '@mui/x-data-gr
 import EditIcon from '@mui/icons-material/Edit';
 import DeleteIcon from '@mui/icons-material/Delete';
 import TableOuterCard from '@/components/shared/data-table/table-outer-card';
-import PageContainer from '@/components/container/PageContainer';
+import PageContainer from '@/components/containers/page-container';
 import DataTable from '@/components/shared/data-table';
 import TableFilterBar from '@/components/shared/data-table/table-filter-search-bar';
 

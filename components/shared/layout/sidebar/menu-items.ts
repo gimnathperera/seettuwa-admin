@@ -1,4 +1,7 @@
-import { IconLayoutDashboard, IconLogin, IconTypography, IconUserPlus } from '@tabler/icons-react';
+import DashboardOutlinedIcon from '@mui/icons-material/DashboardOutlined';
+import PeopleAltOutlinedIcon from '@mui/icons-material/PeopleAltOutlined';
+import PersonAddAltOutlinedIcon from '@mui/icons-material/PersonAddAltOutlined';
+import LoginOutlinedIcon from '@mui/icons-material/LoginOutlined';
 import { uniqueId } from 'lodash';
 
 const Menuitems = [
@@ -10,7 +13,7 @@ const Menuitems = [
   {
     id: uniqueId(),
     title: 'Dashboard',
-    icon: IconLayoutDashboard,
+    icon: DashboardOutlinedIcon,
     href: '/',
   },
   {
@@ -21,7 +24,7 @@ const Menuitems = [
   {
     id: uniqueId(),
     title: 'Users',
-    icon: IconTypography,
+    icon: PeopleAltOutlinedIcon,
     href: '/user-management/users',
   },
 
@@ -32,13 +35,13 @@ const Menuitems = [
   {
     id: uniqueId(),
     title: 'Login',
-    icon: IconLogin,
+    icon: LoginOutlinedIcon,
     href: '/authentication/login',
   },
   {
     id: uniqueId(),
     title: 'Register',
-    icon: IconUserPlus,
+    icon: PersonAddAltOutlinedIcon,
     href: '/authentication/register',
   },
 ];

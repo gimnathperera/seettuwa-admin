@@ -1,10 +1,10 @@
-import PrintIcon from '@mui/icons-material/Print';
-import { SearchBarContainer, StyledDivider, StyledIconButton } from './index.styles';
+import { useState } from 'react';
+import { Grid } from '@mui/material';
+import IosShareOutlinedIcon from '@mui/icons-material/IosShareOutlined';
+import AppliedFilters from './applied-filters';
 import FilterBy, { Filter, SelectOption } from './filter-by';
 import SearchBy from './search-by';
-import { Grid } from '@mui/material';
-import AppliedFilters from './applied-filters';
-import { useState } from 'react';
+import { SearchBarContainer, StyledDivider, StyledIconButton } from './index.styles';
 
 export interface SearchParam {
   key: string;
@@ -83,7 +83,7 @@ const DataTable: React.FC<Props> = ({
           <StyledDivider orientation='vertical' />
 
           <StyledIconButton onClick={handlePrintButtonClick}>
-            <PrintIcon />
+            <IosShareOutlinedIcon />
           </StyledIconButton>
         </SearchBarContainer>
       </Grid>

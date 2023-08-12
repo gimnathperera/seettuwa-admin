@@ -9,7 +9,7 @@ import {
   Checkbox,
 } from '@mui/material';
 import Link from 'next/link';
-import CustomTextField from '@/components/forms/theme-elements/custom-textfield';
+import { CustomTextField } from '@/components';
 
 interface loginType {
   title?: string;

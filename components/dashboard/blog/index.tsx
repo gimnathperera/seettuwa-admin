@@ -1,13 +1,13 @@
 import Link from 'next/link';
+import Image from 'next/image';
 import { CardContent, Typography, Grid, Rating, Tooltip, Fab } from '@mui/material';
 import img1 from 'public/images/products/s4.jpg';
 import img2 from 'public/images/products/s5.jpg';
 import img3 from 'public/images/products/s7.jpg';
 import img4 from 'public/images/products/s11.jpg';
 import { Stack } from '@mui/system';
-import BlankCard from '../../shared/cards/blank-card';
-import Image from 'next/image';
 import ShoppingBasketOutlinedIcon from '@mui/icons-material/ShoppingBasketOutlined';
+import { BlankCard } from '@/components';
 
 const ecoCard = [
   {

@@ -2,7 +2,7 @@ import React from 'react';
 import { Box, AppBar, Toolbar, styled, Stack, IconButton, Badge } from '@mui/material';
 import NotificationsActiveOutlinedIcon from '@mui/icons-material/NotificationsActiveOutlined';
 import ListOutlinedIcon from '@mui/icons-material/ListOutlined';
-import Profile from './Profile';
+import UserMenu from './user-menu';
 import Breadcrumb from '../../breadcrumb';
 
 interface ItemType {
@@ -62,7 +62,7 @@ const Header = ({ toggleMobileSidebar }: ItemType): JSX.Element => {
             </Badge>
           </IconButton>
 
-          <Profile />
+          <UserMenu />
         </Stack>
       </ToolbarStyled>
     </AppBarStyled>

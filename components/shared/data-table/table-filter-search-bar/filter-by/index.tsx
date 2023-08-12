@@ -1,5 +1,4 @@
 import TuneIcon from '@mui/icons-material/Tune';
-import { FilterButton, FilterContainer } from './index.styles';
 import { useState } from 'react';
 import {
   Button,
@@ -10,6 +9,7 @@ import {
   SelectChangeEvent,
   Typography,
 } from '@mui/material';
+import { FilterButton, FilterContainer } from './index.styles';
 
 export interface SelectOption {
   key: string;

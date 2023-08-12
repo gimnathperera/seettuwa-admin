@@ -1,10 +1,8 @@
 import React from 'react';
 import { Box, AppBar, Toolbar, styled, Stack, IconButton, Badge } from '@mui/material';
-import PropTypes from 'prop-types';
-
-// components
+import NotificationsActiveOutlinedIcon from '@mui/icons-material/NotificationsActiveOutlined';
+import ListOutlinedIcon from '@mui/icons-material/ListOutlined';
 import Profile from './Profile';
-import { IconBellRinging, IconMenu } from '@tabler/icons-react';
 import Breadcrumb from '../../breadcrumb';
 
 interface ItemType {
@@ -43,7 +41,7 @@ const Header = ({ toggleMobileSidebar }: ItemType): JSX.Element => {
             },
           }}
         >
-          <IconMenu width='20' height='20' />
+          <ListOutlinedIcon width='20' height='20' />
         </IconButton>
 
         <Box>
@@ -60,7 +58,7 @@ const Header = ({ toggleMobileSidebar }: ItemType): JSX.Element => {
             aria-haspopup='true'
           >
             <Badge variant='dot' color='primary'>
-              <IconBellRinging size='21' stroke='1.5' />
+              <NotificationsActiveOutlinedIcon />
             </Badge>
           </IconButton>
 
@@ -69,10 +67,6 @@ const Header = ({ toggleMobileSidebar }: ItemType): JSX.Element => {
       </ToolbarStyled>
     </AppBarStyled>
   );
-};
-
-Header.propTypes = {
-  sx: PropTypes.object,
 };
 
 export default Header;

@@ -11,7 +11,9 @@ import {
   ListItemText,
 } from '@mui/material';
 
-import { IconListCheck, IconMail, IconUser } from '@tabler/icons-react';
+import EmailOutlinedIcon from '@mui/icons-material/EmailOutlined';
+import Person4OutlinedIcon from '@mui/icons-material/Person4Outlined';
+import ChecklistRtlOutlinedIcon from '@mui/icons-material/ChecklistRtlOutlined';
 
 const Profile = (): JSX.Element => {
   const [anchorEl2, setAnchorEl2] = useState(null);
@@ -65,19 +67,19 @@ const Profile = (): JSX.Element => {
       >
         <MenuItem>
           <ListItemIcon>
-            <IconUser width={20} />
+            <Person4OutlinedIcon width={20} />
           </ListItemIcon>
           <ListItemText>My Profile</ListItemText>
         </MenuItem>
         <MenuItem>
           <ListItemIcon>
-            <IconMail width={20} />
+            <EmailOutlinedIcon width={20} />
           </ListItemIcon>
           <ListItemText>My Account</ListItemText>
         </MenuItem>
         <MenuItem>
           <ListItemIcon>
-            <IconListCheck width={20} />
+            <ChecklistRtlOutlinedIcon width={20} />
           </ListItemIcon>
           <ListItemText>My Tasks</ListItemText>
         </MenuItem>

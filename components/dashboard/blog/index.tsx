@@ -5,9 +5,9 @@ import img2 from 'public/images/products/s5.jpg';
 import img3 from 'public/images/products/s7.jpg';
 import img4 from 'public/images/products/s11.jpg';
 import { Stack } from '@mui/system';
-import { IconBasket } from '@tabler/icons-react';
 import BlankCard from '../../shared/cards/blank-card';
 import Image from 'next/image';
+import ShoppingBasketOutlinedIcon from '@mui/icons-material/ShoppingBasketOutlined';
 
 const ecoCard = [
   {
@@ -59,7 +59,7 @@ const Blog = (): JSX.Element => {
                 color='primary'
                 sx={{ bottom: '75px', right: '15px', position: 'absolute' }}
               >
-                <IconBasket size='16' />
+                <ShoppingBasketOutlinedIcon />
               </Fab>
             </Tooltip>
             <CardContent sx={{ p: 3, pt: 2 }}>

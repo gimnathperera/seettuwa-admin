@@ -4,12 +4,13 @@
 
 import { Box, Button, Grid, IconButton, Typography } from '@mui/material';
 import { GridColDef, GridValueGetterParams, useGridApiRef } from '@mui/x-data-grid';
-import EditIcon from '@mui/icons-material/Edit';
-import DeleteIcon from '@mui/icons-material/Delete';
 import TableOuterCard from '@/components/shared/data-table/table-outer-card';
 import PageContainer from '@/components/containers/page-container';
 import DataTable from '@/components/shared/data-table';
 import TableFilterBar from '@/components/shared/data-table/table-filter-search-bar';
+import EditOutlinedIcon from '@mui/icons-material/EditOutlined';
+import DeleteOutlineOutlinedIcon from '@mui/icons-material/DeleteOutlineOutlined';
+import VisibilityOutlinedIcon from '@mui/icons-material/VisibilityOutlined';
 
 const columns: GridColDef[] = [
   { field: 'id', headerName: 'ID', flex: 1 },
@@ -43,10 +44,13 @@ const columns: GridColDef[] = [
       return (
         <Box flexDirection='row'>
           <IconButton size='small'>
-            <EditIcon />
+            <VisibilityOutlinedIcon />
           </IconButton>
           <IconButton size='small'>
-            <DeleteIcon />
+            <EditOutlinedIcon />
+          </IconButton>
+          <IconButton size='small'>
+            <DeleteOutlineOutlinedIcon />
           </IconButton>
         </Box>
       );

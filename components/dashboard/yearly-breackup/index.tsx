@@ -3,8 +3,7 @@ import dynamic from 'next/dynamic';
 const Chart = dynamic(() => import('react-apexcharts'), { ssr: false });
 import { useTheme } from '@mui/material/styles';
 import { Grid, Stack, Typography, Avatar } from '@mui/material';
-import { IconArrowUpLeft } from '@tabler/icons-react';
-
+import NorthWestOutlinedIcon from '@mui/icons-material/NorthWestOutlined';
 import DashboardCard from '../../shared/cards/dashboard-card';
 
 const YearlyBreakup = (): JSX.Element => {
@@ -72,7 +71,7 @@ const YearlyBreakup = (): JSX.Element => {
           </Typography>
           <Stack direction='row' spacing={1} mt={1} alignItems='center'>
             <Avatar sx={{ bgcolor: successlight, width: 27, height: 27 }}>
-              <IconArrowUpLeft width={20} color='#39B69A' />
+              <NorthWestOutlinedIcon width={20} />
             </Avatar>
             <Typography variant='subtitle2' fontWeight='600'>
               +9%

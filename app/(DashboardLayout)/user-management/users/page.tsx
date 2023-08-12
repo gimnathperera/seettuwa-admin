@@ -38,6 +38,7 @@ const columns: GridColDef[] = [
     field: 'actions',
     headerName: 'Actions',
     renderCell: (): JSX.Element => {
+      // TODO: add tooltips for the actions
       return (
         <Box flexDirection='row'>
           <IconButton size='small'>

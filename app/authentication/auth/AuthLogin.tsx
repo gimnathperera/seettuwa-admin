@@ -9,8 +9,7 @@ import {
   Checkbox,
 } from '@mui/material';
 import Link from 'next/link';
-
-import CustomTextField from '../../(DashboardLayout)/components/forms/theme-elements/CustomTextField';
+import CustomTextField from '@/components/forms/theme-elements/custom-textfield';
 
 interface loginType {
   title?: string;

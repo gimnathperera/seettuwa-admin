@@ -2,14 +2,14 @@
 // import { useQuery } from 'convex/react';
 // import { api } from '@/convex/_generated/api';
 
-import TableOuterCard from '../../components/shared/TableOuterCard';
-import PageContainer from '../../components/container/PageContainer';
 import { Box, Button, Grid, IconButton, Typography } from '@mui/material';
-import TableFilterBar from '../../components/shared/table-filter-search-bar';
-import DataTable from '../../components/shared/data-table';
 import { GridColDef, GridValueGetterParams, useGridApiRef } from '@mui/x-data-grid';
 import EditIcon from '@mui/icons-material/Edit';
 import DeleteIcon from '@mui/icons-material/Delete';
+import TableOuterCard from '@/components/shared/data-table/table-outer-card';
+import PageContainer from '@/components/container/PageContainer';
+import DataTable from '@/components/shared/data-table';
+import TableFilterBar from '@/components/shared/data-table/table-filter-search-bar';
 
 const columns: GridColDef[] = [
   { field: 'id', headerName: 'ID', flex: 1 },

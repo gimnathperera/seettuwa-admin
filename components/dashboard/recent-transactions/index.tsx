@@ -1,4 +1,3 @@
-import DashboardCard from '../../shared/cards/dashboard-card';
 import {
   Timeline,
   TimelineItem,
@@ -10,6 +9,7 @@ import {
   timelineOppositeContentClasses,
 } from '@mui/lab';
 import { Link, Typography } from '@mui/material';
+import { DashboardCard } from '@/components';
 
 const RecentTransactions = (): JSX.Element => {
   return (

@@ -1,7 +1,7 @@
 'use client';
 import React, { useState } from 'react';
 import { styled, Container, Box } from '@mui/material';
-import { Header, Sidebar } from '@/components';
+import { Footer, Header, Sidebar } from '@/components';
 
 const MainWrapper = styled('div')(() => ({
   display: 'flex',
@@ -12,7 +12,6 @@ const MainWrapper = styled('div')(() => ({
 const PageWrapper = styled('div')(() => ({
   display: 'flex',
   flexGrow: 1,
-  paddingBottom: '60px',
   flexDirection: 'column',
   zIndex: 1,
   backgroundColor: '#f4f7f9',
@@ -45,6 +44,7 @@ export default function RootLayout({ children }: Props): JSX.Element {
         <StyledContainer>
           <Box sx={{ minHeight: 'calc(100vh - 170px)' }}>{children}</Box>
         </StyledContainer>
+        <Footer />
       </PageWrapper>
     </MainWrapper>
   );

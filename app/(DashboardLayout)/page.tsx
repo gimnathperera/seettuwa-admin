@@ -1,11 +1,9 @@
 'use client';
 import { Grid, Box } from '@mui/material';
-import PageContainer from './components/container/PageContainer';
-// components
-
-import RecentTransactions from './components/dashboard/RecentTransactions';
-import ProductPerformance from './components/dashboard/ProductPerformance';
-import Blog from './components/dashboard/Blog';
+import PageContainer from '@/components/containers/page-container';
+import RecentTransactions from '@/components/dashboard/recent-transactions';
+import ProductPerformance from '@/components/dashboard/product-performance';
+import Blog from '@/components/dashboard/blog';
 
 const Dashboard = (): JSX.Element => {
   return (

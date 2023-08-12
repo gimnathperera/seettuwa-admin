@@ -1,8 +1,8 @@
 'use client';
-import { Grid, Box, Card, Typography, Stack } from '@mui/material';
 import Link from 'next/link';
-import PageContainer from '../../(DashboardLayout)/components/container/PageContainer';
-import Logo from '../../(DashboardLayout)/layout/shared/logo/Logo';
+import { Grid, Box, Card, Typography, Stack } from '@mui/material';
+import PageContainer from '@/components/containers/page-container';
+import Logo from '@/components/shared/layout/logo';
 import AuthRegister from '../auth/AuthRegister';
 
 const Register2 = (): JSX.Element => (

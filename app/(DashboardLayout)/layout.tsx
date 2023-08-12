@@ -1,8 +1,8 @@
 'use client';
-import { styled, Container, Box } from '@mui/material';
 import React, { useState } from 'react';
-import Header from './layout/header/Header';
-import Sidebar from './layout/sidebar/Sidebar';
+import { styled, Container, Box } from '@mui/material';
+import Header from '@/components/shared/layout/header/Header';
+import Sidebar from '@/components/shared/layout/sidebar';
 
 const MainWrapper = styled('div')(() => ({
   display: 'flex',

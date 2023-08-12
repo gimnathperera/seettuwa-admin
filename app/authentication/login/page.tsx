@@ -1,9 +1,8 @@
 'use client';
 import Link from 'next/link';
 import { Grid, Box, Card, Stack, Typography } from '@mui/material';
-// components
-import PageContainer from '../../(DashboardLayout)/components/container/PageContainer';
-import Logo from '../../(DashboardLayout)/layout/shared/logo/Logo';
+import PageContainer from '@/components/containers/page-container';
+import Logo from '@/components/shared/layout/logo';
 import AuthLogin from '../auth/AuthLogin';
 
 const Login2 = (): JSX.Element => {

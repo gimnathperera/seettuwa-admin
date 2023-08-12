@@ -1,9 +1,16 @@
-import { FC } from 'react';
+'use client';
 
-type Props = {};
+import Grid from '@mui/material/Grid';
+import { UserProfileHeader } from '@/components';
 
-const page: FC = ({}: Props) => {
-  return <div>page</div>;
+const UserProfile = (): JSX.Element => {
+  return (
+    <Grid container spacing={6}>
+      <Grid item xs={12}>
+        <UserProfileHeader />
+      </Grid>
+    </Grid>
+  );
 };
 
-export default page;
+export default UserProfile;

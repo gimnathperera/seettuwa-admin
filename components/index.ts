@@ -18,3 +18,5 @@ export { default as Header } from './shared/layout/header';
 export { default as Sidebar } from './shared/layout/sidebar';
 export { default as Logo } from './shared/layout/logo';
 export { default as Footer } from './shared/layout/footer';
+
+export { default as UserProfileHeader } from './users/profile/profile-header';

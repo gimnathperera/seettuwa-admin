@@ -8,6 +8,7 @@ import CardContent from '@mui/material/CardContent';
 import PlaceOutlinedIcon from '@mui/icons-material/PlaceOutlined';
 import CalendarTodayOutlinedIcon from '@mui/icons-material/CalendarTodayOutlined';
 import VerifiedUserOutlinedIcon from '@mui/icons-material/VerifiedUserOutlined';
+import EditOutlinedIcon from '@mui/icons-material/EditOutlined';
 
 const ProfilePicture = styled('img')(({ theme }) => ({
   width: 120,
@@ -45,7 +46,7 @@ const UserProfileHeader = (): JSX.Element => {
           sx={{
             width: '100%',
             display: 'flex',
-            ml: { xs: 0, md: 6 },
+            ml: { xs: 0, md: 4 },
             alignItems: 'flex-end',
             flexWrap: ['wrap', 'nowrap'],
             justifyContent: ['center', 'space-between'],
@@ -109,11 +110,8 @@ const UserProfileHeader = (): JSX.Element => {
               </Box>
             </Box>
           </Box>
-          <Button
-            variant='contained'
-            // startIcon={<Icon icon='mdi:account-check-outline' fontSize={20} />}
-          >
-            Connected
+          <Button variant='contained' startIcon={<EditOutlinedIcon />}>
+            Edit
           </Button>
         </Box>
       </CardContent>

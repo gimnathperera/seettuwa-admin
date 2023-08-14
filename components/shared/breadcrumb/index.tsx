@@ -1,20 +1,18 @@
 import * as React from 'react';
 import Typography from '@mui/material/Typography';
-import Breadcrumbs from '@mui/material/Breadcrumbs';
 import Link from '@mui/material/Link';
-import HomeIcon from '@mui/icons-material/Home';
 import { ChevronRight } from '@mui/icons-material';
+import { StyledBreadcrumb } from './styles';
 
 const Breadcrumb = (): JSX.Element => {
   return (
-    <Breadcrumbs separator={<ChevronRight />}>
+    <StyledBreadcrumb separator={<ChevronRight />}>
       <Link
         underline='hover'
         sx={{ display: 'flex', alignItems: 'center' }}
         color='inherit'
         href='/'
       >
-        <HomeIcon sx={{ mr: 0.5 }} fontSize='inherit' />
         MUI
       </Link>
       <Link
@@ -28,7 +26,7 @@ const Breadcrumb = (): JSX.Element => {
       <Typography sx={{ display: 'flex', alignItems: 'center' }} color='text.primary'>
         Breadcrumb
       </Typography>
-    </Breadcrumbs>
+    </StyledBreadcrumb>
   );
 };
 

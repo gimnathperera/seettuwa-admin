@@ -1,6 +1,5 @@
 // ** MUI Imports
 import Box from '@mui/material/Box';
-import Card from '@mui/material/Card';
 import Avatar from '@mui/material/Avatar';
 import { styled } from '@mui/material/styles';
 import TimelineDot from '@mui/lab/TimelineDot';
@@ -13,6 +12,7 @@ import TimelineSeparator from '@mui/lab/TimelineSeparator';
 import TimelineConnector from '@mui/lab/TimelineConnector';
 import MuiTimeline, { TimelineProps } from '@mui/lab/Timeline';
 import TimelineIcon from '@mui/icons-material/Timeline';
+import { StyledCard } from './styles';
 
 const Timeline = styled(MuiTimeline)<TimelineProps>({
   paddingLeft: 0,
@@ -27,7 +27,7 @@ const Timeline = styled(MuiTimeline)<TimelineProps>({
 
 const ProfileTimeLine = (): JSX.Element => {
   return (
-    <Card sx={{ height: '100%' }}>
+    <StyledCard>
       <CardHeader
         title={<Typography variant='h6'>Activity Timeline</Typography>}
         sx={{ '& .MuiCardHeader-avatar': { mr: 2.5 } }}
@@ -156,7 +156,7 @@ const ProfileTimeLine = (): JSX.Element => {
           </TimelineItem>
         </Timeline>
       </CardContent>
-    </Card>
+    </StyledCard>
   );
 };
 

@@ -1,7 +1,5 @@
 import Box from '@mui/material/Box';
-import Card from '@mui/material/Card';
 import Button from '@mui/material/Button';
-import { styled } from '@mui/material/styles';
 import CardMedia from '@mui/material/CardMedia';
 import Typography from '@mui/material/Typography';
 import CardContent from '@mui/material/CardContent';
@@ -9,20 +7,11 @@ import PlaceOutlinedIcon from '@mui/icons-material/PlaceOutlined';
 import CalendarTodayOutlinedIcon from '@mui/icons-material/CalendarTodayOutlined';
 import VerifiedUserOutlinedIcon from '@mui/icons-material/VerifiedUserOutlined';
 import EditOutlinedIcon from '@mui/icons-material/EditOutlined';
-
-const ProfilePicture = styled('img')(({ theme }) => ({
-  width: 120,
-  height: 120,
-  borderRadius: theme.shape.borderRadius,
-  border: `5px solid ${theme.palette.common.white}`,
-  [theme.breakpoints.down('md')]: {
-    marginBottom: theme.spacing(4),
-  },
-}));
+import { HeaderWrapper, ProfilePicture } from './styles';
 
 const UserProfileHeader = (): JSX.Element => {
   return (
-    <Card>
+    <HeaderWrapper>
       <CardMedia
         component='img'
         alt='profile-header'
@@ -115,7 +104,7 @@ const UserProfileHeader = (): JSX.Element => {
           </Button>
         </Box>
       </CardContent>
-    </Card>
+    </HeaderWrapper>
   );
 };
 

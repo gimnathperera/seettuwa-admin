@@ -1,6 +1,3 @@
-// ** MUI Imports
-import Card from '@mui/material/Card';
-
 import CardHeader from '@mui/material/CardHeader';
 import Typography from '@mui/material/Typography';
 import CardContent from '@mui/material/CardContent';
@@ -10,6 +7,7 @@ import { Box, IconButton } from '@mui/material';
 import VisibilityOutlinedIcon from '@mui/icons-material/VisibilityOutlined';
 import { GridColDef, GridValueGetterParams, useGridApiRef } from '@mui/x-data-grid';
 import MonetizationOnOutlinedIcon from '@mui/icons-material/MonetizationOnOutlined';
+import { StyledCard } from './styles';
 
 const columns: GridColDef[] = [
   { field: 'id', headerName: 'ID', flex: 1 },
@@ -68,7 +66,7 @@ const ProfileSeettuList = (): JSX.Element => {
   const gridApiRef = useGridApiRef();
 
   return (
-    <Card sx={{ height: '100%' }}>
+    <StyledCard>
       <CardHeader
         title={<Typography variant='h5'>Seettu </Typography>}
         avatar={<MonetizationOnOutlinedIcon />}
@@ -86,7 +84,7 @@ const ProfileSeettuList = (): JSX.Element => {
           rowsPerPage={5}
         />
       </CardContent>
-    </Card>
+    </StyledCard>
   );
 };
 

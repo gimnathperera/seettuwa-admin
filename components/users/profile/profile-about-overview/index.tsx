@@ -1,8 +1,8 @@
 import Box from '@mui/material/Box';
 import Grid from '@mui/material/Grid';
-import Card from '@mui/material/Card';
 import Typography from '@mui/material/Typography';
 import CardContent from '@mui/material/CardContent';
+import { StyledCard } from './styles';
 
 interface Props {
   teams: any[];
@@ -76,7 +76,7 @@ const ProfileOverview = (props: Props): JSX.Element => {
   return (
     <Grid container spacing={2}>
       <Grid item xs={12}>
-        <Card>
+        <StyledCard>
           <CardContent>
             <Box sx={{ mb: 3 }}>
               <Typography
@@ -106,7 +106,7 @@ const ProfileOverview = (props: Props): JSX.Element => {
               {renderTeams(teams)}
             </Box>
           </CardContent>
-        </Card>
+        </StyledCard>
       </Grid>
     </Grid>
   );

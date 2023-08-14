@@ -1,6 +1,5 @@
 import Link from 'next/link';
 import Box from '@mui/material/Box';
-import Card from '@mui/material/Card';
 import Button from '@mui/material/Button';
 import Avatar from '@mui/material/Avatar';
 import Typography from '@mui/material/Typography';
@@ -9,6 +8,7 @@ import CardContent from '@mui/material/CardContent';
 import MoreVertIcon from '@mui/icons-material/MoreVert';
 import Person4OutlinedIcon from '@mui/icons-material/Person4Outlined';
 import SensorOccupiedOutlinedIcon from '@mui/icons-material/SensorOccupiedOutlined';
+import { StyledCard } from './styles';
 
 interface Props {
   connections: any[];
@@ -16,7 +16,7 @@ interface Props {
 
 const ProfileConnections = ({ connections }: Props): JSX.Element => {
   return (
-    <Card sx={{ height: '100%', boxShadow: 'none', borderRadius: '20px', p: '12px' }}>
+    <StyledCard>
       <CardHeader
         title={<Typography variant='h5'>Connections </Typography>}
         action={<MoreVertIcon />}
@@ -66,7 +66,7 @@ const ProfileConnections = ({ connections }: Props): JSX.Element => {
           </Typography>
         </Box>
       </CardContent>
-    </Card>
+    </StyledCard>
   );
 };
 

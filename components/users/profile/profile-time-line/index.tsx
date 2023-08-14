@@ -27,7 +27,7 @@ const Timeline = styled(MuiTimeline)<TimelineProps>({
 
 const ProfileTimeLine = (): JSX.Element => {
   return (
-    <Card>
+    <Card sx={{ height: '100%' }}>
       <CardHeader
         title={<Typography variant='h6'>Activity Timeline</Typography>}
         sx={{ '& .MuiCardHeader-avatar': { mr: 2.5 } }}

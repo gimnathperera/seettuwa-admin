@@ -4,6 +4,7 @@ import Grid from '@mui/material/Grid';
 import {
   ProfileConnections,
   ProfileOverview,
+  ProfileSeettuList,
   ProfileTimeLine,
   UserProfileHeader,
 } from '@/components';
@@ -178,6 +179,9 @@ const UserProfile = (): JSX.Element => {
       </Grid>
       <Grid item xs={12}>
         <Grid container spacing={4}>
+          <Grid item lg={8} md={7} xs={12}>
+            <ProfileSeettuList />
+          </Grid>
           <Grid item lg={4} md={5} xs={12}>
             <ProfileConnections connections={data.connections} />
           </Grid>

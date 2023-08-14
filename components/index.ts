@@ -23,3 +23,4 @@ export { default as UserProfileHeader } from './users/profile/profile-header';
 export { default as ProfileOverview } from './users/profile/profile-about-overview';
 export { default as ProfileTimeLine } from './users/profile/profile-time-line';
 export { default as ProfileConnections } from './users/profile/profile-connections';
+export { default as ProfileSeettuList } from './users/profile/profile-seettu-list';

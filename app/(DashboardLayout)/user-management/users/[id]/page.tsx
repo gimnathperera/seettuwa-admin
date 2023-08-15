@@ -2,12 +2,14 @@
 
 import Grid from '@mui/material/Grid';
 import {
+  PageContainer,
   ProfileConnections,
   ProfileOverview,
   ProfileSeettuList,
   ProfileTimeLine,
   UserProfileHeader,
 } from '@/components';
+import { FC } from 'react';
 
 const data = {
   about: [
@@ -156,38 +158,40 @@ const data = {
   ],
 };
 
-const UserProfile = (): JSX.Element => {
+const UserProfile: FC = () => {
   return (
-    <Grid container spacing={4}>
-      <Grid item xs={12}>
-        <UserProfileHeader />
-      </Grid>
-      <Grid item xs={12}>
-        <Grid container spacing={4}>
-          <Grid item lg={4} md={5} xs={12}>
-            <ProfileOverview
-              about={data.about}
-              contacts={data.contacts}
-              teams={data.teams}
-              overview={data.overview}
-            />
+    <PageContainer title='User Detailed' description='Public users'>
+      <Grid container spacing={4}>
+        <Grid item xs={12}>
+          <UserProfileHeader />
+        </Grid>
+        <Grid item xs={12}>
+          <Grid container spacing={4}>
+            <Grid item lg={4} md={5} xs={12}>
+              <ProfileOverview
+                about={data.about}
+                contacts={data.contacts}
+                teams={data.teams}
+                overview={data.overview}
+              />
+            </Grid>
+            <Grid item lg={8} md={7} xs={12}>
+              <ProfileTimeLine />
+            </Grid>
           </Grid>
-          <Grid item lg={8} md={7} xs={12}>
-            <ProfileTimeLine />
+        </Grid>
+        <Grid item xs={12}>
+          <Grid container spacing={4}>
+            <Grid item lg={8} md={7} xs={12}>
+              <ProfileSeettuList />
+            </Grid>
+            <Grid item lg={4} md={5} xs={12}>
+              <ProfileConnections connections={data.connections} />
+            </Grid>
           </Grid>
         </Grid>
       </Grid>
-      <Grid item xs={12}>
-        <Grid container spacing={4}>
-          <Grid item lg={8} md={7} xs={12}>
-            <ProfileSeettuList />
-          </Grid>
-          <Grid item lg={4} md={5} xs={12}>
-            <ProfileConnections connections={data.connections} />
-          </Grid>
-        </Grid>
-      </Grid>
-    </Grid>
+    </PageContainer>
   );
 };
 

@@ -1,6 +1,6 @@
 'use client';
 import { Grid } from '@mui/material';
-import { PageContainer, RecentTransactions, ProductPerformance, Blog } from '@/components';
+import { PageContainer, RecentTransactions, ProductPerformance } from '@/components';
 
 const Dashboard = (): JSX.Element => {
   return (
@@ -11,9 +11,6 @@ const Dashboard = (): JSX.Element => {
         </Grid>
         <Grid item xs={12} lg={8}>
           <ProductPerformance />
-        </Grid>
-        <Grid item xs={12}>
-          <Blog />
         </Grid>
       </Grid>
     </PageContainer>

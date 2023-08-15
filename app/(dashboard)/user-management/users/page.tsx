@@ -1,6 +1,4 @@
 'use client';
-// import { useQuery } from 'convex/react';
-// import { api } from '@/convex/_generated/api';
 
 import { Box, Button, Grid, IconButton, Typography } from '@mui/material';
 import { GridColDef, GridValueGetterParams, useGridApiRef } from '@mui/x-data-grid';
@@ -69,7 +67,6 @@ const rows = [
 ];
 
 const Users: React.FC = () => {
-  // const tasks = useQuery(api.tasks.get) || [];
   const gridApiRef = useGridApiRef();
 
   return (

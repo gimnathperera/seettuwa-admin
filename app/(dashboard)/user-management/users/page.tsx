@@ -1,58 +1,14 @@
 'use client';
 
 import { Box, Button, Grid, IconButton, Typography } from '@mui/material';
-import { GridColDef, GridValueGetterParams, useGridApiRef } from '@mui/x-data-grid';
+import { GridCellParams, GridColDef, useGridApiRef } from '@mui/x-data-grid';
 import EditOutlinedIcon from '@mui/icons-material/EditOutlined';
 import DeleteOutlineOutlinedIcon from '@mui/icons-material/DeleteOutlineOutlined';
 import VisibilityOutlinedIcon from '@mui/icons-material/VisibilityOutlined';
+import { useRouter } from 'next/navigation';
 import { TableOuterCard, PageContainer, DataTable, TableFilterBar } from '@/components';
-
-const columns: GridColDef[] = [
-  { field: 'id', headerName: 'ID', flex: 1 },
-  {
-    field: 'firstName',
-    headerName: 'First name',
-    flex: 1,
-  },
-  {
-    field: 'lastName',
-    headerName: 'Last name',
-    flex: 1,
-  },
-  {
-    field: 'age',
-    headerName: 'Age',
-    flex: 1,
-  },
-  {
-    field: 'fullName',
-    headerName: 'Full name',
-    flex: 1,
-    valueGetter: (params: GridValueGetterParams) =>
-      `${params.row.firstName || ''} ${params.row.lastName || ''}`,
-  },
-  {
-    flex: 1,
-    field: 'actions',
-    headerName: 'Actions',
-    renderCell: (): JSX.Element => {
-      // TODO: add tooltips for the actions and update the icon colors
-      return (
-        <Box flexDirection='row'>
-          <IconButton size='small'>
-            <VisibilityOutlinedIcon />
-          </IconButton>
-          <IconButton size='small'>
-            <EditOutlinedIcon />
-          </IconButton>
-          <IconButton size='small'>
-            <DeleteOutlineOutlinedIcon />
-          </IconButton>
-        </Box>
-      );
-    },
-  },
-];
+import Link from 'next/link';
+import LetterAvatar from '@/components/shared/avatar';
 
 const rows = [
   { id: 1, lastName: 'Snow', firstName: 'Jon', age: 35 },
@@ -68,6 +24,63 @@ const rows = [
 
 const Users: React.FC = () => {
   const gridApiRef = useGridApiRef();
+  const router = useRouter();
+
+  const renderClient = (fullName: string): JSX.Element => {
+    return <LetterAvatar fullName={fullName} />;
+  };
+
+  const columns: GridColDef[] = [
+    { field: 'id', headerName: 'ID', flex: 1 },
+    {
+      field: 'fullName',
+      headerName: 'Full name',
+      flex: 1,
+      renderCell: ({ row }: GridCellParams): JSX.Element => {
+        const { firstName, lastName, id } = row;
+
+        return (
+          <Box sx={{ display: 'flex', alignItems: 'center', gap: 1 }}>
+            {renderClient(`${firstName} ${lastName}`)}
+            <Box sx={{ display: 'flex', alignItems: 'flex-start', flexDirection: 'column' }}>
+              <Link href={`/user-management/users/${id}`}>{`${firstName} ${lastName}`}</Link>
+            </Box>
+          </Box>
+        );
+      },
+    },
+
+    {
+      field: 'age',
+      headerName: 'Age',
+      flex: 1,
+    },
+
+    {
+      flex: 1,
+      field: 'actions',
+      headerName: 'Actions',
+      renderCell: ({ row }: GridCellParams): JSX.Element => {
+        const handleOnView = (): void => {
+          router.push(`/user-management/users/${row.id}`);
+        };
+
+        return (
+          <Box flexDirection='row'>
+            <IconButton size='small' onClick={handleOnView}>
+              <VisibilityOutlinedIcon />
+            </IconButton>
+            <IconButton size='small'>
+              <EditOutlinedIcon />
+            </IconButton>
+            <IconButton size='small'>
+              <DeleteOutlineOutlinedIcon />
+            </IconButton>
+          </Box>
+        );
+      },
+    },
+  ];
 
   return (
     <PageContainer title='Users' description='Public users'>

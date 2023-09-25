@@ -62,12 +62,6 @@ const Users: FC = () => {
     },
 
     {
-      field: 'phoneNumber',
-      headerName: 'Phone Number',
-      flex: 1,
-    },
-
-    {
       field: 'roles',
       headerName: 'Roles',
       flex: 1,
@@ -77,6 +71,13 @@ const Users: FC = () => {
         return <UserRoleList roles={roles} />;
       },
     },
+
+    {
+      field: 'phoneNumber',
+      headerName: 'Phone Number',
+      flex: 1,
+    },
+
     {
       field: 'status',
       headerName: 'Status',

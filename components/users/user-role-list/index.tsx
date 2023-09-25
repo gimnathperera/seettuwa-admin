@@ -4,7 +4,7 @@ import { Role, RoleName } from '@/types/user-management';
 import { toTitleCase } from '@/utils/functions';
 
 type RoleMapping = {
-  [key: string]: { label: string; color: 'success' | 'info' | 'warning' | 'default' };
+  [key: string]: { label: string };
 };
 
 type RoleChipProps = {
@@ -17,15 +17,15 @@ type Props = {
 
 const RoleChip: FC<RoleChipProps> = ({ roleName }) => {
   const roleMapping: RoleMapping = {
-    OWNER: { label: 'OWNER', color: 'success' },
-    VISITOR: { label: 'VISITOR', color: 'info' },
-    ADMIN: { label: 'ADMIN', color: 'warning' },
-    default: { label: roleName, color: 'default' },
+    OWNER: { label: 'OWNER' },
+    VISITOR: { label: 'VISITOR' },
+    ADMIN: { label: 'ADMIN' },
+    default: { label: roleName },
   };
 
-  const { label, color } = roleMapping[roleName] || roleMapping.default;
+  const { label } = roleMapping[roleName] || roleMapping.default;
 
-  return <Chip label={toTitleCase(label)} size='small' color={color} />;
+  return <Chip label={toTitleCase(label)} size='small' variant='outlined' />;
 };
 
 const RoleList: FC<Props> = ({ roles }) => {

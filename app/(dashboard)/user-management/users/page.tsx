@@ -24,13 +24,7 @@ const Users: FC = () => {
   const router = useRouter();
 
   const columns: GridColDef[] = [
-    { field: 'id', headerName: 'ID' },
-    {
-      field: 'email',
-      headerName: 'Email',
-      flex: 1,
-    },
-
+    { field: 'id', headerName: 'ID', flex: 0.5 },
     {
       field: 'fullName',
       headerName: 'Full name',
@@ -60,11 +54,16 @@ const Users: FC = () => {
         );
       },
     },
+    {
+      field: 'email',
+      headerName: 'Email',
+      flex: 1,
+    },
 
     {
       field: 'roles',
       headerName: 'Roles',
-      flex: 1,
+      flex: 0.5,
       renderCell: ({ row }: GridCellParams): JSX.Element => {
         const { roles } = row;
 

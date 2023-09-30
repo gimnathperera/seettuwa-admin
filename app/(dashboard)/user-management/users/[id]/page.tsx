@@ -25,14 +25,10 @@ const data = {
     },
     {
       property: 'Role',
-      value: 'Developer',
+      value: 'Owner',
       icon: 'mdi:star-outline',
     },
-    {
-      property: 'Country',
-      value: 'USA',
-      icon: 'mdi:flag-outline',
-    },
+
     {
       property: 'Language',
       value: 'English',
@@ -45,27 +41,23 @@ const data = {
       value: '(123) 456-7890',
       icon: 'mdi:phone-outline',
     },
-    {
-      property: 'Skype',
-      value: 'john.doe',
-      icon: 'mdi:message-outline',
-    },
+
     {
       property: 'Email',
       value: 'john.doe@example.com',
       icon: 'mdi:email-outline',
     },
   ],
-  teams: [
+  seettu: [
     {
-      property: 'Backend Developer',
-      value: '(126 Members)',
+      property: 'Completed Seettu',
+      value: '12',
       icon: 'mdi:github',
       color: 'primary',
     },
     {
-      property: 'React Developer',
-      value: '(98 Members)',
+      property: 'Ongoing Settu',
+      value: '2',
       icon: 'mdi:react',
       color: 'info',
     },
@@ -171,7 +163,7 @@ const UserProfile: FC = () => {
               <ProfileOverview
                 about={data.about}
                 contacts={data.contacts}
-                teams={data.teams}
+                seettu={data.seettu}
                 overview={data.overview}
               />
             </Grid>

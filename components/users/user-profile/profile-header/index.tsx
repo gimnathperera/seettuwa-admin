@@ -69,7 +69,7 @@ const UserProfileHeader = (): JSX.Element => {
               >
                 <VerifiedUserOutlinedIcon />
                 <Typography sx={{ ml: 1, color: 'text.secondary', fontWeight: 600 }}>
-                  UX Designer
+                  Owner
                 </Typography>
               </Box>
               <Box

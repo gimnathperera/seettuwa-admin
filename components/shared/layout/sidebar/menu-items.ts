@@ -1,8 +1,3 @@
-import DashboardOutlinedIcon from '@mui/icons-material/DashboardOutlined';
-import PeopleAltOutlinedIcon from '@mui/icons-material/PeopleAltOutlined';
-import PersonAddAltOutlinedIcon from '@mui/icons-material/PersonAddAltOutlined';
-import LoginOutlinedIcon from '@mui/icons-material/LoginOutlined';
-import AccountBalanceWalletOutlinedIcon from '@mui/icons-material/AccountBalanceWalletOutlined';
 import { uniqueId } from 'lodash';
 
 const Menuitems = [
@@ -14,7 +9,7 @@ const Menuitems = [
   {
     id: uniqueId(),
     title: 'Dashboard',
-    icon: DashboardOutlinedIcon,
+    icon: '📊',
     href: '/',
   },
   {
@@ -25,7 +20,7 @@ const Menuitems = [
   {
     id: uniqueId(),
     title: 'Users',
-    icon: PeopleAltOutlinedIcon,
+    icon: '👥',
     href: '/user-management/users',
   },
 
@@ -37,7 +32,7 @@ const Menuitems = [
   {
     id: uniqueId(),
     title: 'Seettu',
-    icon: AccountBalanceWalletOutlinedIcon,
+    icon: '💸',
     href: '/seettu-management/seettu',
   },
 
@@ -48,13 +43,13 @@ const Menuitems = [
   {
     id: uniqueId(),
     title: 'Login',
-    icon: LoginOutlinedIcon,
+    icon: '🗝',
     href: '/authentication/login',
   },
   {
     id: uniqueId(),
     title: 'Register',
-    icon: PersonAddAltOutlinedIcon,
+    icon: '🔓',
     href: '/authentication/register',
   },
 ];

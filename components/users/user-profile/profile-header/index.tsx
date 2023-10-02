@@ -95,7 +95,7 @@ const UserProfileHeader = (): JSX.Element => {
               </Box>
             </Box>
           </Box>
-          <Button variant='contained' startIcon={'🔧'}>
+          <Button variant='contained' startIcon={'🖊'}>
             Edit
           </Button>
         </Box>

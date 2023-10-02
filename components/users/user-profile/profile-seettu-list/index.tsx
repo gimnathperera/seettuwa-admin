@@ -4,9 +4,7 @@ import CardContent from '@mui/material/CardContent';
 
 import { DataTable } from '@/components';
 import { Box, IconButton } from '@mui/material';
-import VisibilityOutlinedIcon from '@mui/icons-material/VisibilityOutlined';
 import { GridColDef, GridValueGetterParams, useGridApiRef } from '@mui/x-data-grid';
-import MonetizationOnOutlinedIcon from '@mui/icons-material/MonetizationOnOutlined';
 import { StyledCard } from './styles';
 
 const columns: GridColDef[] = [
@@ -41,8 +39,8 @@ const columns: GridColDef[] = [
       // TODO: add tooltips for the actions and update the icon colors
       return (
         <Box flexDirection='row'>
-          <IconButton size='small'>
-            <VisibilityOutlinedIcon />
+          <IconButton size='small' color='warning'>
+            📁
           </IconButton>
         </Box>
       );
@@ -69,7 +67,7 @@ const ProfileSeettuList = (): JSX.Element => {
     <StyledCard>
       <CardHeader
         title={<Typography variant='h5'>Seettu </Typography>}
-        avatar={<MonetizationOnOutlinedIcon />}
+        avatar='💸'
         titleTypographyProps={{ sx: { color: 'text.primary' } }}
       />
       <CardContent>

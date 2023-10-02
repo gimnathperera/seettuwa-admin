@@ -3,10 +3,6 @@ import Button from '@mui/material/Button';
 import CardMedia from '@mui/material/CardMedia';
 import Typography from '@mui/material/Typography';
 import CardContent from '@mui/material/CardContent';
-import PlaceOutlinedIcon from '@mui/icons-material/PlaceOutlined';
-import CalendarTodayOutlinedIcon from '@mui/icons-material/CalendarTodayOutlined';
-import VerifiedUserOutlinedIcon from '@mui/icons-material/VerifiedUserOutlined';
-import EditOutlinedIcon from '@mui/icons-material/EditOutlined';
 import { HeaderWrapper, ProfilePicture } from './styles';
 
 const UserProfileHeader = (): JSX.Element => {
@@ -67,7 +63,7 @@ const UserProfileHeader = (): JSX.Element => {
                   '& svg': { mr: 1, color: 'text.secondary' },
                 }}
               >
-                <VerifiedUserOutlinedIcon />
+                💼
                 <Typography sx={{ ml: 1, color: 'text.secondary', fontWeight: 600 }}>
                   Owner
                 </Typography>
@@ -80,7 +76,7 @@ const UserProfileHeader = (): JSX.Element => {
                   '& svg': { mr: 1, color: 'text.secondary' },
                 }}
               >
-                <PlaceOutlinedIcon />
+                📍
                 <Typography sx={{ ml: 1, color: 'text.secondary', fontWeight: 600 }}>
                   Vatican City
                 </Typography>
@@ -92,14 +88,14 @@ const UserProfileHeader = (): JSX.Element => {
                   '& svg': { mr: 1, color: 'text.secondary' },
                 }}
               >
-                <CalendarTodayOutlinedIcon />
+                🗓️
                 <Typography sx={{ ml: 1, color: 'text.secondary', fontWeight: 600 }}>
                   Joined April 2021
                 </Typography>
               </Box>
             </Box>
           </Box>
-          <Button variant='contained' startIcon={<EditOutlinedIcon />}>
+          <Button variant='contained' startIcon={'🖊'}>
             Edit
           </Button>
         </Box>

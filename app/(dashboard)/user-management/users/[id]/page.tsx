@@ -1,5 +1,6 @@
 'use client';
 
+import { FC } from 'react';
 import Grid from '@mui/material/Grid';
 import {
   PageContainer,
@@ -9,7 +10,6 @@ import {
   ProfileTimeLine,
   UserProfileHeader,
 } from '@/components';
-import { FC } from 'react';
 
 const data = {
   about: [

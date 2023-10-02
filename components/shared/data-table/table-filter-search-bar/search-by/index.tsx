@@ -3,7 +3,6 @@ import InputLabel from '@mui/material/InputLabel';
 import MenuItem from '@mui/material/MenuItem';
 import FormControl from '@mui/material/FormControl';
 import Select, { SelectChangeEvent } from '@mui/material/Select';
-import SearchIcon from '@mui/icons-material/Search';
 import { SearchInput, StyledIconButton } from './index.styles';
 import { SelectOption } from '../filter-by';
 
@@ -44,7 +43,7 @@ const SearchBy = ({ searchOptions, placeholder, onSearchBy }: Props): JSX.Elemen
   return (
     <>
       <StyledIconButton onClick={(): void => handleOnSearchByClick({ searchKey, searchValue })}>
-        <SearchIcon />
+        🔍
       </StyledIconButton>
 
       <SearchInput

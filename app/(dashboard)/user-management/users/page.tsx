@@ -3,9 +3,6 @@
 import { FC } from 'react';
 import { Box, Button, Grid, IconButton, Typography } from '@mui/material';
 import { GridCellParams, GridColDef, useGridApiRef } from '@mui/x-data-grid';
-import EditOutlinedIcon from '@mui/icons-material/EditOutlined';
-import DeleteOutlineOutlinedIcon from '@mui/icons-material/DeleteOutlineOutlined';
-import VisibilityOutlinedIcon from '@mui/icons-material/VisibilityOutlined';
 import { useRouter } from 'next/navigation';
 import {
   TableOuterCard,
@@ -99,14 +96,14 @@ const Users: FC = () => {
 
         return (
           <Box flexDirection='row'>
-            <IconButton size='small' onClick={handleOnView}>
-              <VisibilityOutlinedIcon />
+            <IconButton size='small' color='warning' onClick={handleOnView}>
+              📂
             </IconButton>
-            <IconButton size='small'>
-              <EditOutlinedIcon />
+            <IconButton size='small' color='info'>
+              🖊
             </IconButton>
-            <IconButton size='small'>
-              <DeleteOutlineOutlinedIcon />
+            <IconButton size='small' color='error'>
+              🗑️
             </IconButton>
           </Box>
         );

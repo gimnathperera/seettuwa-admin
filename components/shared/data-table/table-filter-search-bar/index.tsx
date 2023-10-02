@@ -1,6 +1,5 @@
 import { useState } from 'react';
 import { Grid } from '@mui/material';
-import IosShareOutlinedIcon from '@mui/icons-material/IosShareOutlined';
 import AppliedFilters from './applied-filters';
 import FilterBy, { Filter, SelectOption } from './filter-by';
 import SearchBy from './search-by';
@@ -82,8 +81,8 @@ const DataTable: React.FC<Props> = ({
 
           <StyledDivider orientation='vertical' />
 
-          <StyledIconButton onClick={handlePrintButtonClick}>
-            <IosShareOutlinedIcon />
+          <StyledIconButton color='info' onClick={handlePrintButtonClick}>
+            📥
           </StyledIconButton>
         </SearchBarContainer>
       </Grid>

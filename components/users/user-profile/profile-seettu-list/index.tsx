@@ -6,7 +6,6 @@ import { DataTable } from '@/components';
 import { Box, IconButton } from '@mui/material';
 import VisibilityOutlinedIcon from '@mui/icons-material/VisibilityOutlined';
 import { GridColDef, GridValueGetterParams, useGridApiRef } from '@mui/x-data-grid';
-import MonetizationOnOutlinedIcon from '@mui/icons-material/MonetizationOnOutlined';
 import { StyledCard } from './styles';
 
 const columns: GridColDef[] = [
@@ -69,7 +68,7 @@ const ProfileSeettuList = (): JSX.Element => {
     <StyledCard>
       <CardHeader
         title={<Typography variant='h5'>Seettu </Typography>}
-        avatar={<MonetizationOnOutlinedIcon />}
+        avatar='💸'
         titleTypographyProps={{ sx: { color: 'text.primary' } }}
       />
       <CardContent>

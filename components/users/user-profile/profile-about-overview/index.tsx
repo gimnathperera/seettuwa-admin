@@ -4,7 +4,6 @@ import Typography from '@mui/material/Typography';
 import CardContent from '@mui/material/CardContent';
 import { StyledCard } from './styles';
 import CardHeader from '@mui/material/CardHeader';
-import TimelineIcon from '@mui/icons-material/Timeline';
 
 interface Props {
   seettu: any[];
@@ -46,26 +45,26 @@ const ProfileOverview = (props: Props): JSX.Element => {
       <Grid item xs={12}>
         <StyledCard>
           <CardHeader
-            title={<Typography variant='h6'>Activity Timeline</Typography>}
+            title={<Typography variant='h6'>About User</Typography>}
             sx={{ '& .MuiCardHeader-avatar': { mr: 2.5 } }}
-            avatar={<TimelineIcon />}
+            avatar='👤'
             titleTypographyProps={{ sx: { color: 'text.primary' } }}
           />
           <CardContent>
             <Box sx={{ mb: 3 }}>
-              <Typography variant='caption' sx={{ mb: 2, display: 'block' }}>
+              <Typography variant='body1' sx={{ mb: 2, display: 'block', fontWeight: 'bold' }}>
                 About
               </Typography>
               {renderList(about)}
             </Box>
             <Box sx={{ mb: 3 }}>
-              <Typography variant='caption' sx={{ mb: 2, display: 'block' }}>
+              <Typography variant='body1' sx={{ mb: 2, display: 'block', fontWeight: 'bold' }}>
                 Contacts
               </Typography>
               {renderList(contacts)}
             </Box>
             <Box sx={{ mb: 3 }}>
-              <Typography variant='caption' sx={{ mb: 2, display: 'block' }}>
+              <Typography variant='body1' sx={{ mb: 2, display: 'block', fontWeight: 'bold' }}>
                 seettu
               </Typography>
               {renderList(seettu)}

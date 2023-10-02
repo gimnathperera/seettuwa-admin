@@ -1,6 +1,5 @@
 import React from 'react';
 import { Box, AppBar, Toolbar, styled, Stack, IconButton, Badge } from '@mui/material';
-import NotificationsActiveOutlinedIcon from '@mui/icons-material/NotificationsActiveOutlined';
 import ListOutlinedIcon from '@mui/icons-material/ListOutlined';
 import UserMenu from './user-menu';
 import Breadcrumb from '../../breadcrumb';
@@ -51,14 +50,14 @@ const Header = ({ toggleMobileSidebar }: ItemType): JSX.Element => {
         <Box flexGrow={1} />
         <Stack spacing={1} direction='row' alignItems='center'>
           <IconButton
-            size='large'
+            size='small'
             aria-label='show 11 new notifications'
             color='inherit'
             aria-controls='msgs-menu'
             aria-haspopup='true'
           >
             <Badge variant='dot' color='primary'>
-              <NotificationsActiveOutlinedIcon />
+              🔔
             </Badge>
           </IconButton>
 

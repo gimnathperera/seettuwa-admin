@@ -1,4 +1,3 @@
-import TuneIcon from '@mui/icons-material/Tune';
 import { useState } from 'react';
 import {
   Button,
@@ -72,9 +71,7 @@ const FilterBy = ({ filters, onFilterBy }: Props): JSX.Element => {
 
   return (
     <>
-      <FilterButton onClick={handleFilterClick}>
-        <TuneIcon />
-      </FilterButton>
+      <FilterButton onClick={handleFilterClick}>🔬</FilterButton>
 
       <Popover
         id={id}

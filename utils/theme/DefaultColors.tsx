@@ -101,7 +101,7 @@ const baselightTheme = createTheme({
     },
     button: {
       textTransform: 'capitalize',
-      fontWeight: 400,
+      fontWeight: 600,
     },
     body1: {
       fontSize: '0.875rem',

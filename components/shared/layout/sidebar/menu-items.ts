@@ -1,4 +1,4 @@
-import { uniqueId } from 'lodash';
+import { uniqueId } from 'lodash-es';
 
 const Menuitems = [
   {
@@ -8,7 +8,7 @@ const Menuitems = [
 
   {
     id: uniqueId(),
-    title: 'Dashboard',
+    title: 'Overview',
     icon: '📊',
     href: '/',
   },

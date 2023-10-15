@@ -25,3 +25,6 @@ export { default as ProfileTimeLine } from './users/user-profile/profile-time-li
 export { default as ProfileConnections } from './users/user-profile/profile-connections';
 export { default as ProfileSeettuList } from './users/user-profile/profile-seettu-list';
 export { default as UserRoleList } from './users/user-role-list';
+export { default as UserStatus } from './users/user-status';
+
+export { default as SeettuStatus } from './seettu/seettu-status';

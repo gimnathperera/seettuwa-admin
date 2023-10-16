@@ -12,9 +12,9 @@ import {
   UserRoleList,
 } from '@/components';
 import Link from 'next/link';
-import LetterAvatar from '@/components/shared/avatar';
 import { users } from '@/data/users';
-import UserStatus from '@/components/users/user-status';
+import { UserStatus } from '@/components';
+import LetterAvatar from '@/components/shared/avatar';
 
 const Users: FC = () => {
   const gridApiRef = useGridApiRef();
@@ -112,17 +112,17 @@ const Users: FC = () => {
   ];
 
   return (
-    <PageContainer title='Users' description='Public users'>
+    <PageContainer title='සීට්ටුව Online | Users' description='Public users'>
       <Grid container flexDirection='column' gap={3}>
         <Grid item xs={12}>
           <Grid container flex='row' justifyContent='space-between' alignItems='center'>
             <Grid item>
               <Typography variant='h4' color='textSecondary'>
-                Public Users
+                All Users
               </Typography>
             </Grid>
             <Grid item>
-              <Button variant='contained'>Create a new user</Button>
+              <Button variant='contained'> 📝 Create new user</Button>
             </Grid>
           </Grid>
         </Grid>

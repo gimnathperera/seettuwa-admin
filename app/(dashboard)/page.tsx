@@ -4,7 +4,7 @@ import { PageContainer, RecentTransactions, ProductPerformance } from '@/compone
 
 const Dashboard = (): JSX.Element => {
   return (
-    <PageContainer title='Dashboard' description='this is Dashboard'>
+    <PageContainer title='සීට්ටුව Online | Overview' description='this is Dashboard'>
       <Grid container spacing={3}>
         <Grid item xs={12} lg={4}>
           <RecentTransactions />

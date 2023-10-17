@@ -7,7 +7,7 @@ echo '🔍 Preparing to commit: Running code analysis and build process...'
 npm run check-format ||
 (
     echo '🔴 Prettier Check Failed: Your code styling does not meet the standards.
-          Please run "npm run format", add the changes, and then reattempt the commit.';
+          Please run pnpm format", add the changes, and then reattempt the commit.';
     false;
 )
 

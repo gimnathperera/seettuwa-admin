@@ -1,21 +1,22 @@
 'use client';
 
-import { FC } from 'react';
-import { Box, Button, Grid, IconButton, Typography } from '@mui/material';
-import { GridCellParams, GridColDef, useGridApiRef } from '@mui/x-data-grid';
-import LinearProgress from '@mui/material/LinearProgress';
-import { useRouter } from 'next/navigation';
 import {
-  TableOuterCard,
-  PageContainer,
   DataTable,
-  TableFilterBar,
+  IconButton,
+  PageContainer,
   SeettuStatus,
+  TableFilterBar,
+  TableOuterCard,
 } from '@/components';
-import Link from 'next/link';
 import { seettu } from '@/data/seettu';
-
 import { formatCurrency, formatDate } from '@/utils/functions';
+import { Box, Button, Grid, Typography } from '@mui/material';
+import LinearProgress from '@mui/material/LinearProgress';
+import { GridCellParams, GridColDef, useGridApiRef } from '@mui/x-data-grid';
+import Link from 'next/link';
+import { useRouter } from 'next/navigation';
+import { FC } from 'react';
+import Tooltip from '@mui/material/Tooltip';
 
 const Seettu: FC = () => {
   const gridApiRef = useGridApiRef();
@@ -43,7 +44,7 @@ const Seettu: FC = () => {
                 flexDirection: 'column',
               }}
             >
-              <Typography variant='body2' color='textPrimary'>
+              <Typography variant='body2' color='primary.main'>
                 {name}
               </Typography>
             </Box>
@@ -116,14 +117,17 @@ const Seettu: FC = () => {
             <Typography variant='body2' color='textPrimary'>
               {formatCurrency(amount)}
             </Typography>
-            <LinearProgress
-              variant='determinate'
-              color='secondary'
-              value={20}
-              sx={{
-                borderRadius: 5,
-              }}
-            />
+            <Tooltip title={formatCurrency(amount)}>
+              <LinearProgress
+                variant='determinate'
+                color='secondary'
+                value={20}
+                sx={{
+                  borderRadius: 5,
+                  cursor: 'pointer',
+                }}
+              />
+            </Tooltip>
           </Box>
         );
       },
@@ -147,17 +151,31 @@ const Seettu: FC = () => {
           router.push(`/user-management/users/${row.id}`);
         };
 
+        const handleOnEdit = (): void => {
+          alert('Edit');
+        };
+
+        const handleOnDelete = (): void => {
+          alert('Delete');
+        };
+
         return (
           <Box flexDirection='row'>
-            <IconButton size='small' color='warning' onClick={handleOnView}>
-              📂
-            </IconButton>
-            <IconButton size='small' color='info'>
-              🖊
-            </IconButton>
-            <IconButton size='small' color='error'>
-              🗑️
-            </IconButton>
+            <IconButton
+              size='small'
+              color='warning'
+              icon='📂'
+              tooltip='View'
+              onClick={handleOnView}
+            />
+            <IconButton size='small' color='info' icon='🖊' tooltip='Edit' onClick={handleOnEdit} />
+            <IconButton
+              size='small'
+              color='error'
+              icon='🗑️'
+              tooltip='Delete'
+              onClick={handleOnDelete}
+            />
           </Box>
         );
       },

@@ -16,16 +16,22 @@ jobs:
       - name: Git checkout
         uses: actions/checkout@v3
 
-      - name: Git sort sha
-        run: echo ${{ steps.vars.outputs.sha_short }}
+      - name: Add SHORT_SHA env property with commit short sha
+        run: echo "SHORT_SHA=`echo ${GITHUB_SHA} | cut -c1-8`" >> $GITHUB_ENV
 
-      - name: Setup node version ${{ matrix.node-version }}
+      - name: Git sort sha
+        run: echo ${SHORT_SHA}
+
+      - name: Setup Node.js version ${{ matrix.node-version }}
         uses: actions/setup-node@v3
         with:
           node-version: ${{ matrix.node-version }}
 
-      - name: Install dependencies
-        run: npm install --frozen-lockfile
+      - name: Install PNPM
+        run: npm install -g pnpm
+
+      - name: Install dependencies using PNPM
+        run: pnpm install --frozen-lockfile
 
       - name: Linter
-        run: npm run lint
+        run: pnpm run lint

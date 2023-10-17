@@ -43,7 +43,7 @@ const Users: FC = () => {
                 flexDirection: 'column',
               }}
             >
-              <Typography variant='body2' color='textPrimary'>
+              <Typography variant='body2' color='primary.main'>
                 {fullName}
               </Typography>
             </Box>

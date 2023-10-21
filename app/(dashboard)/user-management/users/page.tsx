@@ -1,7 +1,7 @@
 'use client';
 
 import { FC, useState } from 'react';
-import { Box, Button, Grid, IconButton, Typography } from '@mui/material';
+import { Box, Button, Grid, Typography } from '@mui/material';
 import { GridCellParams, GridColDef, useGridApiRef } from '@mui/x-data-grid';
 import { useRouter } from 'next/navigation';
 import {
@@ -11,6 +11,7 @@ import {
   TableFilterBar,
   UserRoleList,
   Modal,
+  IconButton,
 } from '@/components';
 import Link from 'next/link';
 import { users } from '@/data/users';
@@ -99,15 +100,23 @@ const Users: FC = () => {
 
         return (
           <Box flexDirection='row'>
-            <IconButton size='small' color='warning' onClick={handleOnView}>
-              📂
-            </IconButton>
-            <IconButton size='small' color='info'>
-              🖊
-            </IconButton>
-            <IconButton size='small' color='error'>
-              🗑️
-            </IconButton>
+            <IconButton
+              size='small'
+              color='warning'
+              icon='📂'
+              tooltip='View'
+              onClick={handleOnView}
+            />
+
+            <IconButton size='small' color='info' icon='🖊' tooltip='Edit' onClick={handleOnView} />
+
+            <IconButton
+              size='small'
+              color='info'
+              icon='🗑️'
+              tooltip='Delete'
+              onClick={handleOnView}
+            />
           </Box>
         );
       },
@@ -197,8 +206,9 @@ const Users: FC = () => {
         onSubmit={handleOnUserCreateSubmit}
         isOpen={userCreateModalOpen}
         maxWidth='sm'
+        hideFooter
       >
-        <UserCreateForm />
+        <UserCreateForm onCancel={handleOnUserCreateModalClose} />
       </Modal>
     </PageContainer>
   );

@@ -1,2 +1,2 @@
-export { toTitleCase, formatCurrency } from './format';
-export { formatDate } from './date';
+export { toTitleCase, formatCurrency, getStringValue } from './format';
+export { formatDate, isDate } from './date';

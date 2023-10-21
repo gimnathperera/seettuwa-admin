@@ -13,12 +13,15 @@ export { default as DashboardCard } from './shared/cards/dashboard-card';
 export { default as TableFilterBar } from './shared/data-table/table-filter-search-bar';
 export { default as TableOuterCard } from './shared/data-table/table-outer-card';
 export { default as DataTable } from './shared/data-table';
+export { default as SectionHeader } from './shared/section-header';
+export { default as Modal } from './shared/modal';
 
 export { default as Header } from './shared/layout/header';
 export { default as Sidebar } from './shared/layout/sidebar';
 export { default as Logo } from './shared/layout/logo';
 export { default as Footer } from './shared/layout/footer';
 export { default as IconButton } from './shared/buttons/icon-button';
+export { default as AsyncButton } from './shared/buttons/async-button';
 
 export { default as UserProfileHeader } from './users/user-profile/profile-header';
 export { default as ProfileOverview } from './users/user-profile/profile-about-overview';

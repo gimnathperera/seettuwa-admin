@@ -1,6 +1,6 @@
 'use client';
 
-import { FC } from 'react';
+import { FC, useState } from 'react';
 import { Box, Button, Grid, IconButton, Typography } from '@mui/material';
 import { GridCellParams, GridColDef, useGridApiRef } from '@mui/x-data-grid';
 import { useRouter } from 'next/navigation';
@@ -10,6 +10,7 @@ import {
   DataTable,
   TableFilterBar,
   UserRoleList,
+  Modal,
 } from '@/components';
 import Link from 'next/link';
 import { users } from '@/data/users';
@@ -19,6 +20,7 @@ import LetterAvatar from '@/components/shared/avatar';
 const Users: FC = () => {
   const gridApiRef = useGridApiRef();
   const router = useRouter();
+  const [userCreateModalOpen, setUserCreateModalOpen] = useState(false);
 
   const columns: GridColDef[] = [
     { field: 'id', headerName: 'ID', flex: 0.5 },
@@ -111,6 +113,18 @@ const Users: FC = () => {
     },
   ];
 
+  const handleOnUserCreateModalOpen = (): void => {
+    setUserCreateModalOpen(true);
+  };
+
+  const handleOnUserCreateModalClose = (): void => {
+    setUserCreateModalOpen(false);
+  };
+
+  const handleOnUserCreateSubmit = (): void => {
+    console.log('Submitted');
+  };
+
   return (
     <PageContainer title='සීට්ටුව Online | Users' description='Public users'>
       <Grid container flexDirection='column' gap={3}>
@@ -122,7 +136,9 @@ const Users: FC = () => {
               </Typography>
             </Grid>
             <Grid item>
-              <Button variant='contained'> 📝 Create new user</Button>
+              <Button variant='contained' onClick={handleOnUserCreateModalOpen}>
+                📝 Create new user
+              </Button>
             </Grid>
           </Grid>
         </Grid>
@@ -173,6 +189,16 @@ const Users: FC = () => {
           />
         </Grid>
       </Grid>
+      <Modal
+        title='Create New User'
+        submitButtonLabel='Create'
+        onClose={handleOnUserCreateModalClose}
+        onSubmit={handleOnUserCreateSubmit}
+        isOpen={userCreateModalOpen}
+        maxWidth='md'
+      >
+        <p>LOl</p>
+      </Modal>
     </PageContainer>
   );
 };

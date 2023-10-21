@@ -95,8 +95,8 @@ const UserProfileHeader = (): JSX.Element => {
               </Box>
             </Box>
           </Box>
-          <Button variant='contained' startIcon={'🖊'}>
-            Edit
+          <Button variant='contained' startIcon='🖊'>
+            Update User
           </Button>
         </Box>
       </CardContent>

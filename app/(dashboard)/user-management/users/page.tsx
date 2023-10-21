@@ -16,6 +16,7 @@ import Link from 'next/link';
 import { users } from '@/data/users';
 import { UserStatus } from '@/components';
 import LetterAvatar from '@/components/shared/avatar';
+import UserCreateForm from '@/components/users/create-user-form';
 
 const Users: FC = () => {
   const gridApiRef = useGridApiRef();
@@ -195,9 +196,9 @@ const Users: FC = () => {
         onClose={handleOnUserCreateModalClose}
         onSubmit={handleOnUserCreateSubmit}
         isOpen={userCreateModalOpen}
-        maxWidth='md'
+        maxWidth='sm'
       >
-        <p>LOl</p>
+        <UserCreateForm />
       </Modal>
     </PageContainer>
   );

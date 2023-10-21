@@ -65,6 +65,7 @@ const Modal = ({
       scroll='body'
       onClose={handleOnClose}
       TransitionComponent={Transition}
+      sx={{ '& .MuiDialog-paper': { borderRadius: '1rem' } }}
     >
       <ModalContent>
         <CloseButton color='error' size='small' icon='❌' onClick={handleOnClickClose} />

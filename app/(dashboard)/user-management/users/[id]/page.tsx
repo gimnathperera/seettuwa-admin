@@ -152,7 +152,7 @@ const data = {
 
 const UserProfile: FC = () => {
   return (
-    <PageContainer title='User Detailed' description='Public users'>
+    <PageContainer title='සීට්ටුව Online | User Detailed' description='Public users'>
       <Grid container spacing={4}>
         <Grid item xs={12}>
           <UserProfileHeader />

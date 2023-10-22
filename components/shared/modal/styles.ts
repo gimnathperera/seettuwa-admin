@@ -7,7 +7,7 @@ export const ModalContent = styled(DialogContent)(() => ({
 }));
 
 export const ModalHeader = styled(Box)(({ theme }) => ({
-  marginBottom: theme.spacing(6),
+  marginBottom: theme.spacing(5),
   textAlign: 'left',
 }));
 

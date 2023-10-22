@@ -22,6 +22,7 @@ export { default as Logo } from './shared/layout/logo';
 export { default as Footer } from './shared/layout/footer';
 export { default as IconButton } from './shared/buttons/icon-button';
 export { default as AsyncButton } from './shared/buttons/async-button';
+export { default as KeyValueItem } from './shared/key-value-item';
 
 export { default as UserProfileHeader } from './users/user-profile/profile-header';
 export { default as ProfileOverview } from './users/user-profile/profile-about-overview';

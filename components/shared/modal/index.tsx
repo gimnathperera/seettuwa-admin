@@ -24,6 +24,7 @@ interface Props {
   maxWidth?: Breakpoint;
   isLoading?: boolean;
   height?: string | number;
+  hideFooter?: boolean;
 }
 
 const destructiveActions = ['delete', 'assign', 'confirm'];
@@ -38,6 +39,8 @@ const Modal = ({
   maxWidth = 'xs',
   height,
   isLoading,
+  hideFooter = false,
+  ...rest
 }: Props): JSX.Element => {
   const childrenContainerRef = useRef<HTMLDivElement>(null);
 
@@ -65,6 +68,8 @@ const Modal = ({
       scroll='body'
       onClose={handleOnClose}
       TransitionComponent={Transition}
+      sx={{ '& .MuiDialog-paper': { borderRadius: '1rem' } }}
+      {...rest}
     >
       <ModalContent>
         <CloseButton color='error' size='small' icon='❌' onClick={handleOnClickClose} />
@@ -78,7 +83,7 @@ const Modal = ({
         </Box>
       </ModalContent>
 
-      {(submitButtonLabel || isDestructive) && (
+      {(submitButtonLabel || isDestructive) && !hideFooter && (
         <ModalActions>
           {submitButtonLabel && (
             <AsyncButton

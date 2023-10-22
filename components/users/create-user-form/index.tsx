@@ -13,10 +13,13 @@ import {
   OutlinedInput,
   Typography,
   Button,
+  Avatar,
 } from '@mui/material';
 import { DialogActions } from '@mui/material';
+import PersonIcon from '@mui/icons-material/Person';
 
 import { FC, useState } from 'react';
+import AsyncButton from '@/components/shared/buttons/async-button';
 
 const steps = ['Personal Info', 'Account Info', 'Summary'];
 
@@ -103,10 +106,46 @@ const Summary = (): JSX.Element => {
         <KeyValueItem label='Email' value='jhon@gmail.com' />
       </Grid>
       <Grid item xs={6}>
-        <KeyValueItem label='Full Name' value='John Doe Doe' />
+        <KeyValueItem label='Password' value='*******' />
       </Grid>
       <Grid item xs={6}>
-        <KeyValueItem label='Email' value='jhon@gm' />
+        <KeyValueItem label='Mobile Number' value='555-456-7890' />
+      </Grid>
+      <Grid item xs={6}>
+        <KeyValueItem
+          label='Address'
+          value='234 Elm Street Suite 567 Fictionalville, CA 12345 USA'
+        />
+      </Grid>
+      <Grid item xs={6}>
+        <KeyValueItem label='Date of birth' value='1998-05-01' />
+      </Grid>
+      <Grid item xs={12}>
+        <Typography variant='body2' fontWeight={600} sx={{ textDecoration: 'underline' }}>
+          Account Info
+        </Typography>
+      </Grid>
+      <Grid item xs={6}>
+        <KeyValueItem label='Role' value='Owner' />
+      </Grid>
+      <Grid item xs={6}>
+        <KeyValueItem label='Status' value='Active' />
+      </Grid>
+      <Grid item xs={6}>
+        <KeyValueItem label='Gender' value='Male' />
+      </Grid>
+      <Grid item xs={6}>
+        <KeyValueItem label='Preferred Language' value='English' />
+      </Grid>
+      <Grid item xs={6}>
+        <KeyValueItem
+          label='Profile picture'
+          value={
+            <Avatar variant='rounded'>
+              <PersonIcon />
+            </Avatar>
+          }
+        />
       </Grid>
     </Grid>
   );
@@ -123,11 +162,19 @@ const UserCreateForm: FC<Props> = ({ onCancel }) => {
     setActiveStep(step);
   };
 
+  const handleOnNextClick = (): void => {
+    setActiveStep(prevActiveStep => prevActiveStep + 1);
+  };
+
+  const handleOnPreviousClick = (): void => {
+    setActiveStep(prevActiveStep => prevActiveStep - 1);
+  };
+
   return (
     <Box
       sx={{
         width: '100%',
-        minHeight: '24rem',
+        minHeight: '26rem',
         display: 'flex',
         flexDirection: 'column',
         justifyContent: 'space-between',
@@ -145,30 +192,41 @@ const UserCreateForm: FC<Props> = ({ onCancel }) => {
         </Stepper>
 
         <Box sx={{ mt: '2rem' }}>
-          {
-            {
-              0: <PersonalInfo />,
-              1: <AccountInfo />,
-              2: <Summary />,
-            }[activeStep]
-          }
+          {activeStep === 0 ? <PersonalInfo /> : activeStep === 1 ? <AccountInfo /> : <Summary />}
         </Box>
       </Box>
 
       <DialogActions
         sx={{
-          justifyContent: 'flex-end',
+          justifyContent: activeStep !== 0 ? 'space-between' : 'flex-end',
           gap: 1,
           pt: '2rem',
           px: 0,
         }}
       >
-        <Button size='small' variant='contained' color='primary'>
-          Next
-        </Button>
-        <Button size='small' variant='outlined' color='primary' onClick={onCancel}>
-          Cancel
-        </Button>
+        {activeStep !== 0 && (
+          <Button size='small' variant='outlined' color='primary' onClick={handleOnPreviousClick}>
+            Back
+          </Button>
+        )}
+        <Box
+          sx={{
+            display: 'flex',
+            gap: 1,
+          }}
+        >
+          {activeStep === steps.length - 1 ? (
+            <AsyncButton size='small' variant='contained' color='primary' text='Create' />
+          ) : (
+            <Button size='small' variant='contained' color='primary' onClick={handleOnNextClick}>
+              Next
+            </Button>
+          )}
+
+          <Button size='small' variant='outlined' color='primary' onClick={onCancel}>
+            Cancel
+          </Button>
+        </Box>
       </DialogActions>
     </Box>
   );

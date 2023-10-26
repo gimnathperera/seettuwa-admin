@@ -17,9 +17,19 @@ import {
 } from '@mui/material';
 import { DialogActions } from '@mui/material';
 import PersonIcon from '@mui/icons-material/Person';
+import { DatePicker } from '@mui/x-date-pickers';
 
 import { FC, useState } from 'react';
 import AsyncButton from '@/components/shared/buttons/async-button';
+import { DATE_FORMAT } from '@/utils/functions/date';
+import SelectInput from '@/components/shared/select-input';
+import {
+  preferredLanguageOptions,
+  userGenderOptions,
+  userRoleOptions,
+  userStatusOptions,
+} from '@/types/user-management';
+import FileUpload from '@/components/shared/file-upload';
 
 const steps = ['Personal Info', 'Account Info', 'Summary'];
 
@@ -51,7 +61,12 @@ const PersonalInfo = (): JSX.Element => {
         <TextField label='Mobile Number' fullWidth />
       </Grid>
       <Grid item xs={6}>
-        <TextField label='Date of birth' fullWidth />
+        <DatePicker
+          label={'Date of birth'}
+          format={DATE_FORMAT}
+          sx={{ width: '100%' }}
+          slotProps={{ textField: { placeholder: DATE_FORMAT.toUpperCase() } }}
+        />
       </Grid>
       <Grid item xs={12}>
         <TextField label='Address' variant='outlined' fullWidth />
@@ -64,28 +79,48 @@ const AccountInfo = (): JSX.Element => {
   return (
     <Grid container spacing={2}>
       <Grid item xs={6}>
-        <TextField label='Role' variant='outlined' fullWidth />
+        <SelectInput
+          label='Role'
+          options={userRoleOptions}
+          value='OWNER'
+          onChange={(value): void => {
+            console.log(value);
+          }}
+        />
       </Grid>
       <Grid item xs={6}>
-        <TextField label='Status' variant='outlined' fullWidth />
+        <SelectInput
+          label='Status'
+          options={userStatusOptions}
+          value='ACTIVE'
+          onChange={(value): void => {
+            console.log(value);
+          }}
+        />
       </Grid>
 
       <Grid item xs={6}>
-        <TextField label='Preferred Language' fullWidth />
-      </Grid>
-      <Grid item xs={6}>
-        <TextField label='Gender' fullWidth />
-      </Grid>
-      <Grid item xs={12}>
-        <TextField
-          type='file'
-          variant='outlined'
-          fullWidth
-          inputProps={{
-            accept: 'image/*',
-            multiple: false,
+        <SelectInput
+          label='Preferred Language'
+          options={preferredLanguageOptions}
+          value='ENGLISH'
+          onChange={(value): void => {
+            console.log(value);
           }}
         />
+      </Grid>
+      <Grid item xs={6}>
+        <SelectInput
+          label='Gender'
+          options={userGenderOptions}
+          value='MALE'
+          onChange={(value): void => {
+            console.log(value);
+          }}
+        />
+      </Grid>
+      <Grid item xs={12}>
+        <FileUpload />
       </Grid>
     </Grid>
   );

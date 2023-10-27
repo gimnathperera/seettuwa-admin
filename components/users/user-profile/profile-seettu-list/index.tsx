@@ -2,66 +2,136 @@ import CardHeader from '@mui/material/CardHeader';
 import Typography from '@mui/material/Typography';
 import CardContent from '@mui/material/CardContent';
 
-import { DataTable } from '@/components';
-import { Box, IconButton } from '@mui/material';
-import { GridColDef, GridValueGetterParams, useGridApiRef } from '@mui/x-data-grid';
+import { DataTable, SeettuStatus } from '@/components';
+import { Box, LinearProgress, Link, Tooltip } from '@mui/material';
+import { GridCellParams, GridColDef, useGridApiRef } from '@mui/x-data-grid';
 import { StyledCard } from './styles';
-
-const columns: GridColDef[] = [
-  { field: 'id', headerName: 'ID', flex: 1 },
-  {
-    field: 'firstName',
-    headerName: 'First name',
-    flex: 1,
-  },
-  {
-    field: 'lastName',
-    headerName: 'Last name',
-    flex: 1,
-  },
-  {
-    field: 'age',
-    headerName: 'Age',
-    flex: 1,
-  },
-  {
-    field: 'fullName',
-    headerName: 'Full name',
-    flex: 1,
-    valueGetter: (params: GridValueGetterParams) =>
-      `${params.row.firstName || ''} ${params.row.lastName || ''}`,
-  },
-  {
-    flex: 1,
-    field: 'actions',
-    headerName: 'Actions',
-    renderCell: (): JSX.Element => {
-      // TODO: add tooltips for the actions and update the icon colors
-      return (
-        <Box flexDirection='row'>
-          <IconButton size='small' color='warning'>
-            📁
-          </IconButton>
-        </Box>
-      );
-    },
-  },
-];
-
-const rows = [
-  { id: 1, lastName: 'Snow', firstName: 'Jon', age: 35 },
-  { id: 2, lastName: 'Lannister', firstName: 'Cersei', age: 42 },
-  { id: 3, lastName: 'Lannister', firstName: 'Jaime', age: 45 },
-  { id: 4, lastName: 'Stark', firstName: 'Arya', age: 16 },
-  { id: 5, lastName: 'Targaryen', firstName: 'Daenerys', age: '-' },
-  { id: 6, lastName: 'Melisandre', firstName: '-', age: 150 },
-  { id: 7, lastName: 'Clifford', firstName: 'Ferrara', age: 44 },
-  { id: 8, lastName: 'Frances', firstName: 'Rossini', age: 36 },
-  { id: 9, lastName: 'Roxie', firstName: 'Harvey', age: 65 },
-];
+import { formatCurrency, formatDate } from '@/utils/functions';
+import { seettu } from '@/data/seettu';
 
 const ProfileSeettuList = (): JSX.Element => {
   const gridApiRef = useGridApiRef();
+
+  const columns: GridColDef[] = [
+    {
+      field: 'name',
+      headerName: 'Name',
+      flex: 1,
+      renderCell: ({ row }: GridCellParams): JSX.Element => {
+        const { name, id } = row;
+
+        return (
+          <Box
+            sx={{ display: 'flex', alignItems: 'center', gap: 1, textDecoration: 'none' }}
+            component={Link}
+            href={`/user-management/users/${id}`}
+          >
+            <Box
+              sx={{
+                display: 'flex',
+                alignItems: 'flex-start',
+                flexDirection: 'column',
+              }}
+            >
+              <Typography variant='body2' color='primary.main'>
+                {name}
+              </Typography>
+            </Box>
+          </Box>
+        );
+      },
+    },
+    {
+      field: 'duration',
+      headerName: 'Duration',
+      flex: 0.8,
+    },
+
+    {
+      field: 'startDate',
+      headerName: 'Start Date',
+      flex: 1,
+      renderCell: ({ row }: GridCellParams): JSX.Element => {
+        const { startDate } = row;
+
+        return (
+          <Typography variant='body2' color='textPrimary'>
+            {formatDate(startDate)}
+          </Typography>
+        );
+      },
+    },
+    {
+      field: 'endDate',
+      headerName: 'End Date',
+      flex: 1,
+      renderCell: ({ row }: GridCellParams): JSX.Element => {
+        const { endDate } = row;
+
+        return (
+          <Typography variant='body2' color='textPrimary'>
+            {formatDate(endDate)}
+          </Typography>
+        );
+      },
+    },
+    {
+      field: 'seettuType',
+      headerName: 'Type',
+      flex: 0.5,
+    },
+    {
+      field: 'userCount',
+      headerName: 'User Count',
+      flex: 1,
+      renderCell: ({ row }: GridCellParams): JSX.Element => {
+        const { userCount } = row;
+
+        return (
+          <Typography variant='body2' color='textPrimary'>
+            👥 {userCount}
+          </Typography>
+        );
+      },
+    },
+    {
+      field: 'amount',
+      headerName: 'Capital',
+      flex: 1,
+      renderCell: ({ row }: GridCellParams): JSX.Element => {
+        const { amount } = row;
+
+        return (
+          <Box>
+            <Typography variant='body2' color='textPrimary'>
+              {formatCurrency(amount)}
+            </Typography>
+            <Tooltip title={formatCurrency(amount)}>
+              <LinearProgress
+                variant='determinate'
+                color='secondary'
+                value={20}
+                sx={{
+                  borderRadius: 5,
+                  cursor: 'pointer',
+                }}
+              />
+            </Tooltip>
+          </Box>
+        );
+      },
+    },
+    {
+      field: 'status',
+      headerName: 'Status',
+      flex: 1,
+      renderCell: ({ row }: GridCellParams): JSX.Element => {
+        const { status } = row;
+
+        return <SeettuStatus status={status} />;
+      },
+    },
+  ];
 
   return (
     <StyledCard>
@@ -73,7 +143,7 @@ const ProfileSeettuList = (): JSX.Element => {
       <CardContent>
         <DataTable
           columns={columns}
-          rows={rows}
+          rows={seettu}
           serverSidePagination={{
             rowCount: 0,
             onPaginationModelChange: () => console.log('onPaginationModelChange'),

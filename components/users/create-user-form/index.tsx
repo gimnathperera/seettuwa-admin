@@ -17,11 +17,9 @@ import {
 } from '@mui/material';
 import { DialogActions } from '@mui/material';
 import PersonIcon from '@mui/icons-material/Person';
-import { DatePicker } from '@mui/x-date-pickers';
 
 import { FC, useState } from 'react';
 import AsyncButton from '@/components/shared/buttons/async-button';
-import { DATE_FORMAT } from '@/utils/functions/date';
 import SelectInput from '@/components/shared/select-input';
 import {
   preferredLanguageOptions,
@@ -29,18 +27,29 @@ import {
   userRoleOptions,
   userStatusOptions,
 } from '@/types/user-management';
-import FileUpload from '@/components/shared/file-upload';
+import { FieldValues, UseFormRegister, useForm } from 'react-hook-form';
+import { DateInput, FileInput } from '@/components';
 
 const steps = ['Personal Info', 'Account Info', 'Summary'];
 
-const PersonalInfo = (): JSX.Element => {
+type PersonalInfoProps = {
+  register: UseFormRegister<FieldValues>;
+  control: any;
+};
+
+type AccountInfoProps = {
+  register: UseFormRegister<FieldValues>;
+  control: any;
+};
+
+const PersonalInfo = ({ register, control }: PersonalInfoProps): JSX.Element => {
   return (
     <Grid container spacing={2}>
       <Grid item xs={12}>
-        <TextField label='Full Name' variant='outlined' fullWidth />
+        <TextField label='Full Name' variant='outlined' fullWidth {...register('fullName')} />
       </Grid>
       <Grid item xs={6}>
-        <TextField label='Email' variant='outlined' type='email' fullWidth />
+        <TextField label='Email' variant='outlined' type='email' fullWidth {...register('email')} />
       </Grid>
       <Grid item xs={6}>
         <FormControl variant='outlined' fullWidth>
@@ -54,48 +63,40 @@ const PersonalInfo = (): JSX.Element => {
               </InputAdornment>
             }
             label='Password'
+            {...register('password')}
           />
         </FormControl>
       </Grid>
       <Grid item xs={6}>
-        <TextField label='Mobile Number' fullWidth />
+        <TextField label='Mobile Number' fullWidth {...register('phoneNumber')} />
       </Grid>
       <Grid item xs={6}>
-        <DatePicker
-          label={'Date of birth'}
-          format={DATE_FORMAT}
-          sx={{ width: '100%' }}
-          slotProps={{ textField: { placeholder: DATE_FORMAT.toUpperCase() } }}
-        />
+        <DateInput label='Date of birth' {...register('dob')} control={control} />
       </Grid>
       <Grid item xs={12}>
-        <TextField label='Address' variant='outlined' fullWidth />
+        <TextField label='Address' variant='outlined' fullWidth {...register('address')} />
       </Grid>
     </Grid>
   );
 };
 
-const AccountInfo = (): JSX.Element => {
+const AccountInfo = ({ register, control }: AccountInfoProps): JSX.Element => {
   return (
     <Grid container spacing={2}>
       <Grid item xs={6}>
         <SelectInput
           label='Role'
           options={userRoleOptions}
-          value='OWNER'
-          onChange={(value): void => {
-            console.log(value);
-          }}
+          {...register('role')}
+          control={control}
         />
       </Grid>
       <Grid item xs={6}>
         <SelectInput
           label='Status'
           options={userStatusOptions}
-          value='ACTIVE'
-          onChange={(value): void => {
-            console.log(value);
-          }}
+          {...register('status')}
+          control={control}
         />
       </Grid>
 
@@ -103,24 +104,20 @@ const AccountInfo = (): JSX.Element => {
         <SelectInput
           label='Preferred Language'
           options={preferredLanguageOptions}
-          value='ENGLISH'
-          onChange={(value): void => {
-            console.log(value);
-          }}
+          {...register('preferredLanguage')}
+          control={control}
         />
       </Grid>
       <Grid item xs={6}>
         <SelectInput
           label='Gender'
           options={userGenderOptions}
-          value='MALE'
-          onChange={(value): void => {
-            console.log(value);
-          }}
+          {...register('gender')}
+          control={control}
         />
       </Grid>
       <Grid item xs={12}>
-        <FileUpload />
+        <FileInput />
       </Grid>
     </Grid>
   );
@@ -193,6 +190,8 @@ type Props = {
 const UserCreateForm: FC<Props> = ({ onCancel }) => {
   const [activeStep, setActiveStep] = useState(0);
 
+  const { register, handleSubmit, control } = useForm();
+
   const handleStep = (step: number) => () => {
     setActiveStep(step);
   };
@@ -206,64 +205,78 @@ const UserCreateForm: FC<Props> = ({ onCancel }) => {
   };
 
   return (
-    <Box
-      sx={{
-        width: '100%',
-        minHeight: '26rem',
-        display: 'flex',
-        flexDirection: 'column',
-        justifyContent: 'space-between',
-      }}
-    >
-      <Box>
-        <Stepper nonLinear activeStep={activeStep}>
-          {steps.map((label, index) => (
-            <Step key={label}>
-              <StepButton color='inherit' onClick={handleStep(index)} sx={{ py: '16px' }}>
-                {label}
-              </StepButton>
-            </Step>
-          ))}
-        </Stepper>
-
-        <Box sx={{ mt: '2rem' }}>
-          {activeStep === 0 ? <PersonalInfo /> : activeStep === 1 ? <AccountInfo /> : <Summary />}
-        </Box>
-      </Box>
-
-      <DialogActions
+    <form onSubmit={handleSubmit(data => console.log(data))}>
+      <Box
         sx={{
-          justifyContent: activeStep !== 0 ? 'space-between' : 'flex-end',
-          gap: 1,
-          pt: '2rem',
-          px: 0,
+          width: '100%',
+          minHeight: '26rem',
+          display: 'flex',
+          flexDirection: 'column',
+          justifyContent: 'space-between',
         }}
       >
-        {activeStep !== 0 && (
-          <Button size='small' variant='outlined' color='primary' onClick={handleOnPreviousClick}>
-            Back
-          </Button>
-        )}
-        <Box
+        <Box>
+          <Stepper nonLinear activeStep={activeStep}>
+            {steps.map((label, index) => (
+              <Step key={label}>
+                <StepButton color='inherit' onClick={handleStep(index)} sx={{ py: '16px' }}>
+                  {label}
+                </StepButton>
+              </Step>
+            ))}
+          </Stepper>
+
+          <Box sx={{ mt: '2rem' }}>
+            {activeStep === 0 ? (
+              <PersonalInfo register={register} control={control} />
+            ) : activeStep === 1 ? (
+              <AccountInfo register={register} control={control} />
+            ) : (
+              <Summary />
+            )}
+          </Box>
+        </Box>
+
+        <DialogActions
           sx={{
-            display: 'flex',
+            justifyContent: activeStep !== 0 ? 'space-between' : 'flex-end',
             gap: 1,
+            pt: '2rem',
+            px: 0,
           }}
         >
-          {activeStep === steps.length - 1 ? (
-            <AsyncButton size='small' variant='contained' color='primary' text='Create' />
-          ) : (
-            <Button size='small' variant='contained' color='primary' onClick={handleOnNextClick}>
-              Next
+          {activeStep !== 0 && (
+            <Button size='small' variant='outlined' color='primary' onClick={handleOnPreviousClick}>
+              Back
             </Button>
           )}
+          <Box
+            sx={{
+              display: 'flex',
+              gap: 1,
+            }}
+          >
+            <Button size='small' variant='outlined' color='primary' onClick={onCancel}>
+              Cancel
+            </Button>
 
-          <Button size='small' variant='outlined' color='primary' onClick={onCancel}>
-            Cancel
-          </Button>
-        </Box>
-      </DialogActions>
-    </Box>
+            {activeStep === steps.length - 1 ? (
+              <AsyncButton
+                size='small'
+                variant='contained'
+                color='primary'
+                text='Create'
+                type='submit'
+              />
+            ) : (
+              <Button size='small' variant='contained' color='primary' onClick={handleOnNextClick}>
+                Next
+              </Button>
+            )}
+          </Box>
+        </DialogActions>
+      </Box>
+    </form>
   );
 };
 

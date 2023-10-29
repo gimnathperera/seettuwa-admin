@@ -6,7 +6,6 @@ export { default as RecentTransactions } from './dashboard/recent-transactions';
 
 export { default as CustomTextField } from './forms/theme-elements/custom-textfield';
 
-export { default as Breadcrumb } from './shared/breadcrumb';
 export { default as BlankCard } from './shared/cards/blank-card';
 export { default as DashboardCard } from './shared/cards/dashboard-card';
 
@@ -23,6 +22,8 @@ export { default as Footer } from './shared/layout/footer';
 export { default as IconButton } from './shared/buttons/icon-button';
 export { default as AsyncButton } from './shared/buttons/async-button';
 export { default as KeyValueItem } from './shared/key-value-item';
+export { default as DateInput } from './shared/date-input';
+export { default as FileInput } from './shared/file-upload';
 
 export { default as UserProfileHeader } from './users/user-profile/profile-header';
 export { default as ProfileOverview } from './users/user-profile/profile-about-overview';

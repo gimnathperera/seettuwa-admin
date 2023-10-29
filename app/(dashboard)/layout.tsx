@@ -27,7 +27,6 @@ interface Props {
 }
 
 export default function RootLayout({ children }: Props): JSX.Element {
-  // const [isSidebarOpen, setSidebarOpen] = useState(true);
   const [isMobileSidebarOpen, setMobileSidebarOpen] = useState(false);
 
   return (
@@ -37,7 +36,6 @@ export default function RootLayout({ children }: Props): JSX.Element {
         isMobileSidebarOpen={isMobileSidebarOpen}
         onSidebarClose={(): void => setMobileSidebarOpen(false)}
       />
-
       <PageWrapper>
         <Header toggleMobileSidebar={(): void => setMobileSidebarOpen(true)} />
 

@@ -2,16 +2,12 @@ import React from 'react';
 import { Box, AppBar, Toolbar, styled, Stack, IconButton, Badge } from '@mui/material';
 import ListOutlinedIcon from '@mui/icons-material/ListOutlined';
 import UserMenu from './user-menu';
-import Breadcrumb from '../../breadcrumb';
 
 interface ItemType {
   toggleMobileSidebar: (event: React.MouseEvent<HTMLElement>) => void;
 }
 
 const Header = ({ toggleMobileSidebar }: ItemType): JSX.Element => {
-  // const lgUp = useMediaQuery((theme) => theme.breakpoints.up('lg'));
-  // const lgDown = useMediaQuery((theme) => theme.breakpoints.down('lg'));
-
   const AppBarStyled = styled(AppBar)(({ theme }) => ({
     boxShadow: 'none',
     background: theme.palette.background.paper,
@@ -42,10 +38,6 @@ const Header = ({ toggleMobileSidebar }: ItemType): JSX.Element => {
         >
           <ListOutlinedIcon width='20' height='20' />
         </IconButton>
-
-        <Box>
-          <Breadcrumb />
-        </Box>
 
         <Box flexGrow={1} />
         <Stack spacing={1} direction='row' alignItems='center'>

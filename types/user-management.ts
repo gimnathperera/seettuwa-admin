@@ -2,11 +2,16 @@ import { toTitleCase } from '@/utils/functions';
 
 export interface User {
   id: number | string;
-  email: string;
   fullName: string;
+  email: string;
+  password: string;
   phoneNumber: string;
-  roles: Role[];
+  dob: string | Date;
+  address: string;
+  role: Role | RoleName;
   status: UserStatus;
+  preferredLanguage: PreferredLanguage;
+  gender: Gender;
 }
 
 export interface Role {
@@ -50,17 +55,17 @@ export const userStatusOptions = Object.values(UserStatus).map(status => ({
   label: toTitleCase(status),
 }));
 
-export const userRoleOptions = Object.values(RoleName).map(status => ({
-  value: status,
-  label: toTitleCase(status),
+export const userRoleOptions = Object.values(RoleName).map(role => ({
+  value: role,
+  label: toTitleCase(role),
 }));
 
-export const preferredLanguageOptions = Object.values(PreferredLanguage).map(status => ({
-  value: status,
-  label: toTitleCase(status),
+export const preferredLanguageOptions = Object.values(PreferredLanguage).map(language => ({
+  value: language,
+  label: toTitleCase(language),
 }));
 
-export const userGenderOptions = Object.values(Gender).map(status => ({
-  value: status,
-  label: toTitleCase(status),
+export const userGenderOptions = Object.values(Gender).map(gender => ({
+  value: gender,
+  label: toTitleCase(gender),
 }));

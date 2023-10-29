@@ -1,6 +1,6 @@
 'use client';
 
-import { FC, useState } from 'react';
+import { FC, useRef, useState } from 'react';
 import { Box, Button, Grid, Typography } from '@mui/material';
 import { GridCellParams, GridColDef, useGridApiRef } from '@mui/x-data-grid';
 import { useRouter } from 'next/navigation';
@@ -17,12 +17,15 @@ import Link from 'next/link';
 import { users } from '@/data/users';
 import { UserStatus } from '@/components';
 import LetterAvatar from '@/components/shared/avatar';
-import UserCreateForm from '@/components/users/create-user-form';
+import UserForm from '@/components/users/user-form';
+import { User } from '@/types/user-management';
 
 const Users: FC = () => {
   const gridApiRef = useGridApiRef();
   const router = useRouter();
+  const currentUser = useRef<User | null>(null);
   const [userCreateModalOpen, setUserCreateModalOpen] = useState(false);
+  const [userEditModalOpen, setUserEditModalOpen] = useState(false);
 
   const columns: GridColDef[] = [
     { field: 'id', headerName: 'ID', flex: 0.5 },
@@ -98,6 +101,11 @@ const Users: FC = () => {
           router.push(`/user-management/users/${row.id}`);
         };
 
+        const handleOnEdit = (): void => {
+          currentUser.current = row;
+          handleOnUserEditModalOpen();
+        };
+
         return (
           <Box flexDirection='row'>
             <IconButton
@@ -108,7 +116,7 @@ const Users: FC = () => {
               onClick={handleOnView}
             />
 
-            <IconButton size='small' color='info' icon='🖊' tooltip='Edit' onClick={handleOnView} />
+            <IconButton size='small' color='info' icon='🖊' tooltip='Edit' onClick={handleOnEdit} />
 
             <IconButton
               size='small'
@@ -129,6 +137,15 @@ const Users: FC = () => {
 
   const handleOnUserCreateModalClose = (): void => {
     setUserCreateModalOpen(false);
+  };
+
+  const handleOnUserEditModalOpen = (): void => {
+    setUserEditModalOpen(true);
+  };
+
+  const handleOnUserEditModalClose = (): void => {
+    setUserEditModalOpen(false);
+    currentUser.current = null;
   };
 
   const handleOnUserCreateSubmit = (): void => {
@@ -208,7 +225,19 @@ const Users: FC = () => {
         maxWidth='sm'
         hideFooter
       >
-        <UserCreateForm onCancel={handleOnUserCreateModalClose} />
+        <UserForm onCancel={handleOnUserCreateModalClose} />
+      </Modal>
+
+      <Modal
+        title={currentUser.current && `Update User | ${currentUser.current?.fullName}`}
+        submitButtonLabel='Update'
+        onClose={handleOnUserEditModalClose}
+        onSubmit={handleOnUserCreateSubmit}
+        isOpen={userEditModalOpen}
+        maxWidth='sm'
+        hideFooter
+      >
+        <UserForm userData={currentUser.current} onCancel={handleOnUserCreateModalClose} />
       </Modal>
     </PageContainer>
   );

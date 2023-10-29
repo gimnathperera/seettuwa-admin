@@ -35,7 +35,7 @@ const Seettu: FC = () => {
           <Box
             sx={{ display: 'flex', alignItems: 'center', gap: 1, textDecoration: 'none' }}
             component={Link}
-            href={`/user-management/users/${id}`}
+            href={`/seettu-management/seettu/${id}`}
           >
             <Box
               sx={{

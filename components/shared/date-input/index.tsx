@@ -22,7 +22,7 @@ const DateInput: FC<Props> = ({ label, name, control, ...rest }) => {
       sx={{ width: '100%' }}
       slotProps={{ textField: { placeholder: DATE_FORMAT.toUpperCase() } }}
       {...rest}
-      value={value}
+      value={value ? new Date(value) : value}
       onChange={onChange}
     />
   );

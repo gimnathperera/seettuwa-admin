@@ -1,6 +1,6 @@
 import React, { FC } from 'react';
 import { Box, Chip } from '@mui/material';
-import { Role, RoleName } from '@/types/user-management';
+import { RoleName } from '@/types/user-management';
 import { toTitleCase } from '@/utils/functions';
 
 type RoleMapping = {
@@ -12,7 +12,7 @@ type RoleChipProps = {
 };
 
 type Props = {
-  roles?: Role[];
+  role?: RoleName;
 };
 
 const RoleChip: FC<RoleChipProps> = ({ roleName }) => {
@@ -28,12 +28,8 @@ const RoleChip: FC<RoleChipProps> = ({ roleName }) => {
   return <Chip label={toTitleCase(label)} size='small' variant='outlined' />;
 };
 
-const RoleList: FC<Props> = ({ roles }) => {
-  return (
-    <Box>
-      {roles?.length ? roles?.map(({ id, name }) => <RoleChip key={id} roleName={name} />) : '-'}
-    </Box>
-  );
+const RoleList: FC<Props> = ({ role }) => {
+  return <Box>{role ? <RoleChip roleName={role} /> : '-'}</Box>;
 };
 
 export default RoleList;

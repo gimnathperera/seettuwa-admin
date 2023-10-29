@@ -12,6 +12,7 @@ export { default as DashboardCard } from './shared/cards/dashboard-card';
 export { default as TableFilterBar } from './shared/data-table/table-filter-search-bar';
 export { default as TableOuterCard } from './shared/data-table/table-outer-card';
 export { default as DataTable } from './shared/data-table';
+export { default as TableAction } from './shared/data-table/table-action-button';
 export { default as SectionHeader } from './shared/section-header';
 export { default as Modal } from './shared/modal';
 

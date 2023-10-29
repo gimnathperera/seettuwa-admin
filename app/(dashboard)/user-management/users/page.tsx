@@ -69,9 +69,9 @@ const Users: FC = () => {
       headerName: 'Roles',
       flex: 0.5,
       renderCell: ({ row }: GridCellParams): JSX.Element => {
-        const { roles } = row;
+        const { role } = row;
 
-        return <UserRoleList roles={roles} />;
+        return <UserRoleList role={role} />;
       },
     },
 

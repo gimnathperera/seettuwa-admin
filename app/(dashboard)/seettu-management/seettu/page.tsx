@@ -3,6 +3,7 @@
 import {
   DataTable,
   IconButton,
+  Modal,
   PageContainer,
   SeettuStatus,
   TableFilterBar,
@@ -15,15 +16,17 @@ import LinearProgress from '@mui/material/LinearProgress';
 import { GridCellParams, GridColDef, useGridApiRef } from '@mui/x-data-grid';
 import Link from 'next/link';
 import { useRouter } from 'next/navigation';
-import { FC } from 'react';
+import { FC, useState } from 'react';
 import Tooltip from '@mui/material/Tooltip';
+import SeettuCreateForm from '@/components/seettu/seettu-form';
 
 const Seettu: FC = () => {
   const gridApiRef = useGridApiRef();
   const router = useRouter();
+  const [seettuCreateModalOpen, setSeettuCreateModalOpen] = useState(false);
 
   const columns: GridColDef[] = [
-    { field: 'id', headerName: 'ID', flex: 0.5 },
+    { field: 'id', headerName: 'ID', flex: 1 },
     {
       field: 'name',
       headerName: 'Name',
@@ -161,6 +164,7 @@ const Seettu: FC = () => {
 
         return (
           <Box flexDirection='row'>
+            {/* <TableAction /> */}
             <IconButton
               size='small'
               color='warning'
@@ -182,6 +186,18 @@ const Seettu: FC = () => {
     },
   ];
 
+  const handleOnSeettuCreateModalOpen = (): void => {
+    setSeettuCreateModalOpen(true);
+  };
+
+  const handleOnSeettuCreateModalClose = (): void => {
+    setSeettuCreateModalOpen(false);
+  };
+
+  const handleOnSeettuCreateSubmit = (): void => {
+    console.log('Submitted');
+  };
+
   return (
     <PageContainer title='සීට්ටුව Online | Seettu' description='Public users'>
       <Grid container flexDirection='column' gap={3}>
@@ -193,7 +209,9 @@ const Seettu: FC = () => {
               </Typography>
             </Grid>
             <Grid item>
-              <Button variant='contained'>📝 Create new seettu</Button>
+              <Button variant='contained' onClick={handleOnSeettuCreateModalOpen}>
+                📝 Create new seettu
+              </Button>
             </Grid>
           </Grid>
         </Grid>
@@ -244,6 +262,18 @@ const Seettu: FC = () => {
           />
         </Grid>
       </Grid>
+
+      <Modal
+        title='Create New Seettu'
+        submitButtonLabel='Create'
+        onClose={handleOnSeettuCreateModalClose}
+        onSubmit={handleOnSeettuCreateSubmit}
+        isOpen={seettuCreateModalOpen}
+        maxWidth='sm'
+        hideFooter
+      >
+        <SeettuCreateForm onCancel={handleOnSeettuCreateModalClose} />
+      </Modal>
     </PageContainer>
   );
 };

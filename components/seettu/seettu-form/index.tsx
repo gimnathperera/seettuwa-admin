@@ -5,7 +5,7 @@ import { User } from '@/types/user-management';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { FC, useState } from 'react';
 import { useForm } from 'react-hook-form';
-import { UserFormSchema } from './scehma';
+import { UserFormSchema } from './schema';
 import Summary from './summary';
 import PersonalInfo from './personal-info';
 import AccountInfo from './account-info';

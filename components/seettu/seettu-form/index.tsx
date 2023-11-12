@@ -42,7 +42,7 @@ const SeettuCreateForm: FC<Props> = ({ seettuData, onCancel }) => {
       <Box
         sx={{
           width: '100%',
-          minHeight: '26rem',
+          minHeight: '28rem',
           display: 'flex',
           flexDirection: 'column',
           justifyContent: 'space-between',

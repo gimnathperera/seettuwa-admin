@@ -1,5 +1,5 @@
 import { z } from 'zod';
 
-const UserFormSchema = z.object({});
+const SeettuFormSchema = z.object({});
 
-export { UserFormSchema };
+export { SeettuFormSchema };

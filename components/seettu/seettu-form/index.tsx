@@ -1,28 +1,28 @@
 import { Box, Button, DialogActions, Step, StepButton, Stepper } from '@mui/material';
 
 import AsyncButton from '@/components/shared/buttons/async-button';
-import { User } from '@/types/user-management';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { FC, useState } from 'react';
 import { useForm } from 'react-hook-form';
-import { UserFormSchema } from './schema';
+import { SeettuFormSchema } from './schema';
 import Summary from './summary';
-import PersonalInfo from './personal-info';
-import AccountInfo from './account-info';
+import BasicInfo from './basic-info';
+import ParticipantsInfo from './participants-info';
+import { Seettu } from '@/types/seettu-management';
 
-const steps = ['Personal Info', 'Account Info', 'Summary'];
+const steps = ['Basic Info', 'Participants Info', 'Summary'];
 
 type Props = {
   onCancel: () => void;
-  userData?: User | null;
+  seettuData?: Seettu | null;
 };
 
-const SeettuCreateForm: FC<Props> = ({ userData, onCancel }) => {
+const SeettuCreateForm: FC<Props> = ({ seettuData, onCancel }) => {
   const [activeStep, setActiveStep] = useState(0);
 
-  const { register, handleSubmit, control, watch } = useForm<User>({
-    defaultValues: { ...userData },
-    resolver: zodResolver(UserFormSchema),
+  const { register, handleSubmit, control, watch } = useForm<Seettu>({
+    defaultValues: { ...seettuData },
+    resolver: zodResolver(SeettuFormSchema),
   });
 
   const handleStep = (step: number) => () => {
@@ -61,9 +61,9 @@ const SeettuCreateForm: FC<Props> = ({ userData, onCancel }) => {
 
           <Box sx={{ mt: '2rem' }}>
             {activeStep === 0 ? (
-              <PersonalInfo register={register} control={control} />
+              <BasicInfo register={register} control={control} />
             ) : activeStep === 1 ? (
-              <AccountInfo register={register} control={control} />
+              <ParticipantsInfo register={register} control={control} />
             ) : (
               <Summary watch={watch} />
             )}

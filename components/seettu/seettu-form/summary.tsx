@@ -20,7 +20,21 @@ const Summary = ({ watch }: Summary): JSX.Element => {
       <Grid item xs={6}>
         <KeyValueItem label='Seettu Name' value={seettuName} />
       </Grid>
-
+      <Grid item xs={6}>
+        <KeyValueItem label='Status' value={seettuName} />
+      </Grid>
+      <Grid item xs={6}>
+        <KeyValueItem label='Type' value={seettuName} />
+      </Grid>
+      <Grid item xs={6}>
+        <KeyValueItem label='Duration' value={seettuName} />
+      </Grid>
+      <Grid item xs={6}>
+        <KeyValueItem label='Start Date' value={seettuName} />
+      </Grid>
+      <Grid item xs={6}>
+        <KeyValueItem label='End Date' value={seettuName} />
+      </Grid>
       <Grid item xs={12}>
         <Typography variant='body2' fontWeight={600} sx={{ textDecoration: 'underline' }}>
           Participants Info

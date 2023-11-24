@@ -17,8 +17,6 @@ const MemberList: FC = () => {
   return (
     <List>
       {[0, 1, 2, 3].map(value => {
-        const labelId = `checkbox-list-secondary-label-${value}`;
-
         return (
           <ListItem
             key={value}
@@ -37,7 +35,7 @@ const MemberList: FC = () => {
                   variant='rounded'
                 />
               </ListItemAvatar>
-              <ListItemText id={labelId} primary={`Line item ${value + 1}`} />
+              <ListItemText primary={`User ${value + 1}`} />
               {value === 0 && <AdminPanelSettingsIcon />}
             </ListItemButton>
           </ListItem>

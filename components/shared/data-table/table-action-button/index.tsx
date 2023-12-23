@@ -6,8 +6,15 @@ import { FC, MouseEvent, useState } from 'react';
 import { StyledMenu } from './styles';
 import { IconButton } from '@/components';
 import DeleteIcon from '@mui/icons-material/Delete';
+import MoreVertIcon from '@mui/icons-material/MoreVert';
 
-const TableAction: FC = () => {
+type Props = {
+  handleOnView?: () => void;
+  handleOnEdit?: () => void;
+  handleOnDelete?: () => void;
+};
+
+const TableAction: FC<Props> = ({ handleOnView, handleOnEdit, handleOnDelete }) => {
   const [anchorEl, setAnchorEl] = useState<null | HTMLElement>(null);
   const open = Boolean(anchorEl);
 
@@ -20,7 +27,7 @@ const TableAction: FC = () => {
 
   return (
     <div>
-      <IconButton icon='🔻' onClick={handleClick} />
+      <IconButton icon={<MoreVertIcon />} onClick={handleClick} />
       <StyledMenu
         id='demo-customized-menu'
         MenuListProps={{
@@ -35,16 +42,16 @@ const TableAction: FC = () => {
           Copy ID
         </MenuItem>
 
-        <MenuItem onClick={handleClose} disableRipple>
+        <MenuItem onClick={handleOnEdit} disableRipple>
           <EditIcon />
           Edit
         </MenuItem>
 
-        <MenuItem onClick={handleClose} disableRipple>
+        <MenuItem onClick={handleOnView} disableRipple>
           <RemoveRedEyeIcon />
           View
         </MenuItem>
-        <MenuItem onClick={handleClose} disableRipple>
+        <MenuItem onClick={handleOnDelete} disableRipple>
           <DeleteIcon />
           Delete
         </MenuItem>

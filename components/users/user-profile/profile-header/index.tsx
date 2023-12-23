@@ -4,6 +4,10 @@ import CardMedia from '@mui/material/CardMedia';
 import Typography from '@mui/material/Typography';
 import CardContent from '@mui/material/CardContent';
 import { HeaderWrapper, ProfilePicture } from './styles';
+import EditIcon from '@mui/icons-material/Edit';
+import CalendarMonthIcon from '@mui/icons-material/CalendarMonth';
+import BusinessCenterIcon from '@mui/icons-material/BusinessCenter';
+import LocationOnIcon from '@mui/icons-material/LocationOn';
 
 const UserProfileHeader = (): JSX.Element => {
   return (
@@ -63,7 +67,7 @@ const UserProfileHeader = (): JSX.Element => {
                   '& svg': { mr: 1, color: 'text.secondary' },
                 }}
               >
-                💼
+                <BusinessCenterIcon />
                 <Typography sx={{ ml: 1, color: 'text.secondary', fontWeight: 600 }}>
                   Owner
                 </Typography>
@@ -76,7 +80,7 @@ const UserProfileHeader = (): JSX.Element => {
                   '& svg': { mr: 1, color: 'text.secondary' },
                 }}
               >
-                📍
+                <LocationOnIcon />
                 <Typography sx={{ ml: 1, color: 'text.secondary', fontWeight: 600 }}>
                   Vatican City
                 </Typography>
@@ -88,14 +92,14 @@ const UserProfileHeader = (): JSX.Element => {
                   '& svg': { mr: 1, color: 'text.secondary' },
                 }}
               >
-                🗓️
+                <CalendarMonthIcon />
                 <Typography sx={{ ml: 1, color: 'text.secondary', fontWeight: 600 }}>
                   Joined April 2021
                 </Typography>
               </Box>
             </Box>
           </Box>
-          <Button variant='contained' startIcon='🖊'>
+          <Button variant='contained' startIcon={<EditIcon />}>
             Update User
           </Button>
         </Box>

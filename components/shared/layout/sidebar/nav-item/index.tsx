@@ -30,7 +30,9 @@ interface ItemType {
 }
 
 const NavItem = ({ item, level, pathDirect, onClick }: ItemType): JSX.Element => {
+  const Icon = item.icon;
   const theme = useTheme();
+  const itemIcon = <Icon stroke={1.5} size='1.3rem' />;
 
   const ListItemStyled = styled(ListItem)(() => ({
     padding: 0,
@@ -75,7 +77,7 @@ const NavItem = ({ item, level, pathDirect, onClick }: ItemType): JSX.Element =>
               color: 'inherit',
             }}
           >
-            {String(item.icon)}
+            {itemIcon}
           </ListItemIcon>
           <ListItemText>
             <>{item.title}</>

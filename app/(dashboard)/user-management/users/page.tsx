@@ -19,6 +19,10 @@ import { UserStatus } from '@/components';
 import LetterAvatar from '@/components/shared/avatar';
 import UserForm from '@/components/users/user-form';
 import { User } from '@/types/user-management';
+import VisibilityIcon from '@mui/icons-material/Visibility';
+import EditIcon from '@mui/icons-material/Edit';
+import DeleteIcon from '@mui/icons-material/Delete';
+import AddIcon from '@mui/icons-material/Add';
 
 const Users: FC = () => {
   const gridApiRef = useGridApiRef();
@@ -38,7 +42,12 @@ const Users: FC = () => {
 
         return (
           <Box
-            sx={{ display: 'flex', alignItems: 'center', gap: 1, textDecoration: 'none' }}
+            sx={{
+              display: 'flex',
+              alignItems: 'center',
+              gap: 1,
+              textDecoration: 'none',
+            }}
             component={Link}
             href={`/user-management/users/${id}`}
           >
@@ -48,6 +57,7 @@ const Users: FC = () => {
                 display: 'flex',
                 alignItems: 'flex-start',
                 flexDirection: 'column',
+                '&:hover': { textDecoration: 'underline' },
               }}
             >
               <Typography variant='body2' color='primary.main'>
@@ -111,17 +121,23 @@ const Users: FC = () => {
             <IconButton
               size='small'
               color='warning'
-              icon='📂'
+              icon={<VisibilityIcon />}
               tooltip='View'
               onClick={handleOnView}
             />
 
-            <IconButton size='small' color='info' icon='🖊' tooltip='Edit' onClick={handleOnEdit} />
-
             <IconButton
               size='small'
               color='info'
-              icon='🗑️'
+              icon={<EditIcon />}
+              tooltip='Edit'
+              onClick={handleOnEdit}
+            />
+
+            <IconButton
+              size='small'
+              color='error'
+              icon={<DeleteIcon />}
               tooltip='Delete'
               onClick={handleOnView}
             />
@@ -163,8 +179,12 @@ const Users: FC = () => {
               </Typography>
             </Grid>
             <Grid item>
-              <Button variant='contained' onClick={handleOnUserCreateModalOpen}>
-                📝 Create new user
+              <Button
+                variant='contained'
+                onClick={handleOnUserCreateModalOpen}
+                startIcon={<AddIcon />}
+              >
+                Create new user
               </Button>
             </Grid>
           </Grid>

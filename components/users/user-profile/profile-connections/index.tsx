@@ -6,6 +6,7 @@ import CardHeader from '@mui/material/CardHeader';
 import CardContent from '@mui/material/CardContent';
 import { StyledCard } from './styles';
 import LetterAvatar from '@/components/shared/avatar';
+import MessageIcon from '@mui/icons-material/Message';
 
 interface Props {
   connections: any[];
@@ -43,7 +44,7 @@ const ProfileConnections = ({ connections }: Props): JSX.Element => {
                   color='primary'
                   sx={{ p: (theme): any => `${theme.spacing(1)} !important` }}
                 >
-                  💬
+                  <MessageIcon />
                 </Button>
               </Box>
             );

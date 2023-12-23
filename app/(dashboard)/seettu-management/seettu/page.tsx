@@ -2,23 +2,23 @@
 
 import {
   DataTable,
-  IconButton,
   Modal,
   PageContainer,
   SeettuStatus,
+  TableAction,
   TableFilterBar,
   TableOuterCard,
 } from '@/components';
+import SeettuCreateForm from '@/components/seettu/seettu-form';
 import { seettu } from '@/data/seettu';
 import { formatCurrency, formatDate } from '@/utils/functions';
 import { Box, Button, Grid, Typography } from '@mui/material';
 import LinearProgress from '@mui/material/LinearProgress';
+import Tooltip from '@mui/material/Tooltip';
 import { GridCellParams, GridColDef, useGridApiRef } from '@mui/x-data-grid';
 import Link from 'next/link';
 import { useRouter } from 'next/navigation';
 import { FC, useState } from 'react';
-import Tooltip from '@mui/material/Tooltip';
-import SeettuCreateForm from '@/components/seettu/seettu-form';
 
 const Seettu: FC = () => {
   const gridApiRef = useGridApiRef();
@@ -45,6 +45,7 @@ const Seettu: FC = () => {
                 display: 'flex',
                 alignItems: 'flex-start',
                 flexDirection: 'column',
+                '&:hover': { textDecoration: 'underline' },
               }}
             >
               <Typography variant='body2' color='primary.main'>
@@ -164,21 +165,10 @@ const Seettu: FC = () => {
 
         return (
           <Box flexDirection='row'>
-            {/* <TableAction /> */}
-            <IconButton
-              size='small'
-              color='warning'
-              icon='📂'
-              tooltip='View'
-              onClick={handleOnView}
-            />
-            <IconButton size='small' color='info' icon='🖊' tooltip='Edit' onClick={handleOnEdit} />
-            <IconButton
-              size='small'
-              color='error'
-              icon='🗑️'
-              tooltip='Delete'
-              onClick={handleOnDelete}
+            <TableAction
+              handleOnDelete={handleOnDelete}
+              handleOnEdit={handleOnEdit}
+              handleOnView={handleOnView}
             />
           </Box>
         );

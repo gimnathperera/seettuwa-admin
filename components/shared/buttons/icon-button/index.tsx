@@ -1,7 +1,8 @@
 import { IconButton as Button, ButtonProps, Tooltip } from '@mui/material';
+import React, { ReactNode } from 'react';
 
 interface Props extends ButtonProps {
-  icon: string;
+  icon: string | ReactNode;
   tooltip?: string;
   onClick: () => void;
 }

@@ -1,4 +1,9 @@
 import { uniqueId } from 'lodash-es';
+import TrendingUpIcon from '@mui/icons-material/TrendingUp';
+import GroupIcon from '@mui/icons-material/Group';
+import LocalAtmIcon from '@mui/icons-material/LocalAtm';
+import LoginIcon from '@mui/icons-material/Login';
+import LockOpenIcon from '@mui/icons-material/LockOpen';
 
 const Menuitems = [
   {
@@ -9,7 +14,7 @@ const Menuitems = [
   {
     id: uniqueId(),
     title: 'Overview',
-    icon: '📊',
+    icon: TrendingUpIcon,
     href: '/',
   },
   {
@@ -20,7 +25,7 @@ const Menuitems = [
   {
     id: uniqueId(),
     title: 'Users',
-    icon: '👥',
+    icon: GroupIcon,
     href: '/user-management/users',
   },
 
@@ -32,7 +37,7 @@ const Menuitems = [
   {
     id: uniqueId(),
     title: 'Seettu',
-    icon: '💸',
+    icon: LocalAtmIcon,
     href: '/seettu-management/seettu',
   },
 
@@ -43,13 +48,13 @@ const Menuitems = [
   {
     id: uniqueId(),
     title: 'Login',
-    icon: '🗝',
+    icon: LoginIcon,
     href: '/authentication/login',
   },
   {
     id: uniqueId(),
     title: 'Register',
-    icon: '🔓',
+    icon: LockOpenIcon,
     href: '/authentication/register',
   },
 ];

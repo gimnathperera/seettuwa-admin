@@ -9,6 +9,7 @@ import {
   Typography,
 } from '@mui/material';
 import { FilterButton, FilterContainer } from './index.styles';
+import TuneIcon from '@mui/icons-material/Tune';
 
 export interface SelectOption {
   key: string;
@@ -71,7 +72,9 @@ const FilterBy = ({ filters, onFilterBy }: Props): JSX.Element => {
 
   return (
     <>
-      <FilterButton onClick={handleFilterClick}>🔬</FilterButton>
+      <FilterButton onClick={handleFilterClick}>
+        <TuneIcon />
+      </FilterButton>
 
       <Popover
         id={id}

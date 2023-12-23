@@ -1,9 +1,10 @@
-import { useState } from 'react';
+import DownloadIcon from '@mui/icons-material/Download';
 import { Grid } from '@mui/material';
+import { useState } from 'react';
 import AppliedFilters from './applied-filters';
 import FilterBy, { Filter, SelectOption } from './filter-by';
-import SearchBy from './search-by';
 import { SearchBarContainer, StyledDivider, StyledIconButton } from './index.styles';
+import SearchBy from './search-by';
 
 export interface SearchParam {
   key: string;
@@ -82,7 +83,7 @@ const DataTable: React.FC<Props> = ({
           <StyledDivider orientation='vertical' />
 
           <StyledIconButton color='info' onClick={handlePrintButtonClick}>
-            📥
+            <DownloadIcon />
           </StyledIconButton>
         </SearchBarContainer>
       </Grid>

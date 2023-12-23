@@ -2,6 +2,7 @@ import React from 'react';
 import { Box, AppBar, Toolbar, styled, Stack, IconButton, Badge } from '@mui/material';
 import ListOutlinedIcon from '@mui/icons-material/ListOutlined';
 import UserMenu from './user-menu';
+import NotificationsIcon from '@mui/icons-material/Notifications';
 
 interface ItemType {
   toggleMobileSidebar: (event: React.MouseEvent<HTMLElement>) => void;
@@ -49,7 +50,7 @@ const Header = ({ toggleMobileSidebar }: ItemType): JSX.Element => {
             aria-haspopup='true'
           >
             <Badge variant='dot' color='primary'>
-              🔔
+              <NotificationsIcon />
             </Badge>
           </IconButton>
 

@@ -1,28 +1,25 @@
 'use client';
 
-import { FC, useRef, useState } from 'react';
-import { Box, Button, Grid, Typography } from '@mui/material';
-import { GridCellParams, GridColDef, useGridApiRef } from '@mui/x-data-grid';
-import { useRouter } from 'next/navigation';
 import {
-  TableOuterCard,
-  PageContainer,
   DataTable,
-  TableFilterBar,
-  UserRoleList,
   Modal,
-  IconButton,
+  PageContainer,
+  TableAction,
+  TableFilterBar,
+  TableOuterCard,
+  UserRoleList,
+  UserStatus,
 } from '@/components';
-import Link from 'next/link';
-import { users } from '@/data/users';
-import { UserStatus } from '@/components';
 import LetterAvatar from '@/components/shared/avatar';
 import UserForm from '@/components/users/user-form';
+import { users } from '@/data/users';
 import { User } from '@/types/user-management';
-import VisibilityIcon from '@mui/icons-material/Visibility';
-import EditIcon from '@mui/icons-material/Edit';
-import DeleteIcon from '@mui/icons-material/Delete';
 import AddIcon from '@mui/icons-material/Add';
+import { Box, Button, Grid, Typography } from '@mui/material';
+import { GridCellParams, GridColDef, useGridApiRef } from '@mui/x-data-grid';
+import Link from 'next/link';
+import { useRouter } from 'next/navigation';
+import { FC, useRef, useState } from 'react';
 
 const Users: FC = () => {
   const gridApiRef = useGridApiRef();
@@ -106,6 +103,7 @@ const Users: FC = () => {
       flex: 1,
       field: 'actions',
       headerName: 'Actions',
+
       renderCell: ({ row }: GridCellParams): JSX.Element => {
         const handleOnView = (): void => {
           router.push(`/user-management/users/${row.id}`);
@@ -116,30 +114,16 @@ const Users: FC = () => {
           handleOnUserEditModalOpen();
         };
 
+        const handleOnDelete = (): void => {
+          alert('Delete');
+        };
+
         return (
           <Box flexDirection='row'>
-            <IconButton
-              size='small'
-              color='warning'
-              icon={<VisibilityIcon />}
-              tooltip='View'
-              onClick={handleOnView}
-            />
-
-            <IconButton
-              size='small'
-              color='info'
-              icon={<EditIcon />}
-              tooltip='Edit'
-              onClick={handleOnEdit}
-            />
-
-            <IconButton
-              size='small'
-              color='error'
-              icon={<DeleteIcon />}
-              tooltip='Delete'
-              onClick={handleOnView}
+            <TableAction
+              handleOnDelete={handleOnDelete}
+              handleOnEdit={handleOnEdit}
+              handleOnView={handleOnView}
             />
           </Box>
         );

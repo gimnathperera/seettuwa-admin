@@ -27,7 +27,7 @@ const TableAction: FC<Props> = ({ handleOnView, handleOnEdit, handleOnDelete }) 
 
   return (
     <div>
-      <IconButton icon={<MoreVertIcon />} onClick={handleClick} />
+      <IconButton color='info' icon={<MoreVertIcon />} onClick={handleClick} />
       <StyledMenu
         id='demo-customized-menu'
         MenuListProps={{

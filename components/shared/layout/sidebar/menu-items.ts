@@ -1,9 +1,8 @@
-import { uniqueId } from 'lodash-es';
-import TrendingUpIcon from '@mui/icons-material/TrendingUp';
 import GroupIcon from '@mui/icons-material/Group';
 import LocalAtmIcon from '@mui/icons-material/LocalAtm';
 import LoginIcon from '@mui/icons-material/Login';
-import LockOpenIcon from '@mui/icons-material/LockOpen';
+import TrendingUpIcon from '@mui/icons-material/TrendingUp';
+import { uniqueId } from 'lodash-es';
 
 const Menuitems = [
   {
@@ -50,12 +49,6 @@ const Menuitems = [
     title: 'Login',
     icon: LoginIcon,
     href: '/authentication/login',
-  },
-  {
-    id: uniqueId(),
-    title: 'Register',
-    icon: LockOpenIcon,
-    href: '/authentication/register',
   },
 ];
 

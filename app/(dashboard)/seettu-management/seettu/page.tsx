@@ -19,6 +19,7 @@ import { GridCellParams, GridColDef, useGridApiRef } from '@mui/x-data-grid';
 import Link from 'next/link';
 import { useRouter } from 'next/navigation';
 import { FC, useState } from 'react';
+import AddIcon from '@mui/icons-material/Add';
 
 const Seettu: FC = () => {
   const gridApiRef = useGridApiRef();
@@ -199,8 +200,12 @@ const Seettu: FC = () => {
               </Typography>
             </Grid>
             <Grid item>
-              <Button variant='contained' onClick={handleOnSeettuCreateModalOpen}>
-                📝 Create new seettu
+              <Button
+                variant='contained'
+                startIcon={<AddIcon />}
+                onClick={handleOnSeettuCreateModalOpen}
+              >
+                Create new seettu
               </Button>
             </Grid>
           </Grid>
@@ -208,7 +213,7 @@ const Seettu: FC = () => {
 
         <Grid item xs={12}>
           <TableFilterBar
-            placeholder='Search public users'
+            placeholder='Search seettu'
             searchOptions={[
               { key: 'Name', value: 'name' },
               { key: 'Email', value: 'email' },

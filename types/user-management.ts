@@ -14,6 +14,8 @@ export interface User {
   gender: Gender;
 }
 
+export type Login = Pick<User, 'email' | 'password'>;
+
 export interface Role {
   id: number | string;
   name: RoleName;

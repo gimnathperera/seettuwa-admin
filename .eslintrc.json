@@ -29,7 +29,10 @@
           "{}": false
         }
       }
-    ]
+    ],
+
+    // Warn if console logs are available
+    "no-console": "warn"
   },
   "plugins": ["import"],
   "settings": {

@@ -1,3 +1,6 @@
 {
-  "cSpell.words": ["baselight", "hookform", "navlabel", "Seettu", "SINHALA", "svgs", "සීට්ටුව"]
+  "cSpell.words": ["baselight", "hookform", "navlabel", "Seettu", "SINHALA", "svgs", "සීට්ටුව"],
+  "editor.codeActionsOnSave": {
+    "source.organizeImports": true
+  }
 }

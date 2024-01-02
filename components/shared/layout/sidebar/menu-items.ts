@@ -1,6 +1,5 @@
 import GroupIcon from '@mui/icons-material/Group';
 import LocalAtmIcon from '@mui/icons-material/LocalAtm';
-import LoginIcon from '@mui/icons-material/Login';
 import TrendingUpIcon from '@mui/icons-material/TrendingUp';
 import { uniqueId } from 'lodash-es';
 
@@ -38,17 +37,6 @@ const Menuitems = [
     title: 'Seettu',
     icon: LocalAtmIcon,
     href: '/seettu-management/seettu',
-  },
-
-  {
-    navlabel: true,
-    subheader: 'Auth',
-  },
-  {
-    id: uniqueId(),
-    title: 'Login',
-    icon: LoginIcon,
-    href: '/authentication/login',
   },
 ];
 

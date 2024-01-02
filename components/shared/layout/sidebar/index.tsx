@@ -1,4 +1,4 @@
-import { useMediaQuery, Box, Drawer } from '@mui/material';
+import { Box, Drawer, useMediaQuery } from '@mui/material';
 import Logo from '../logo';
 import SidebarItems from './sidebar-items';
 
@@ -37,7 +37,7 @@ const Sidebar = ({ isMobileSidebarOpen, onSidebarClose, isSidebarOpen }: ItemTyp
               height: '100%',
             }}
           >
-            <Box px={3}>
+            <Box px={3} pt={2}>
               <Logo />
             </Box>
             <Box>

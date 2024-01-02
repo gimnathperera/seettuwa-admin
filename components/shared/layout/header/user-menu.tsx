@@ -1,19 +1,16 @@
-import React, { useState } from 'react';
-import Link from 'next/link';
+import PersonIcon from '@mui/icons-material/Person';
 import {
   Avatar,
   Box,
-  Menu,
   Button,
   IconButton,
-  MenuItem,
   ListItemIcon,
   ListItemText,
+  Menu,
+  MenuItem,
 } from '@mui/material';
-
-import EmailOutlinedIcon from '@mui/icons-material/EmailOutlined';
-import Person4OutlinedIcon from '@mui/icons-material/Person4Outlined';
-import ChecklistRtlOutlinedIcon from '@mui/icons-material/ChecklistRtlOutlined';
+import Link from 'next/link';
+import { useState } from 'react';
 
 const Profile = (): JSX.Element => {
   const [anchorEl2, setAnchorEl2] = useState(null);
@@ -67,22 +64,11 @@ const Profile = (): JSX.Element => {
       >
         <MenuItem>
           <ListItemIcon>
-            <Person4OutlinedIcon width={20} />
+            <PersonIcon width={20} />
           </ListItemIcon>
           <ListItemText>My Profile</ListItemText>
         </MenuItem>
-        <MenuItem>
-          <ListItemIcon>
-            <EmailOutlinedIcon width={20} />
-          </ListItemIcon>
-          <ListItemText>My Account</ListItemText>
-        </MenuItem>
-        <MenuItem>
-          <ListItemIcon>
-            <ChecklistRtlOutlinedIcon width={20} />
-          </ListItemIcon>
-          <ListItemText>My Tasks</ListItemText>
-        </MenuItem>
+
         <Box mt={1} py={1} px={2}>
           <Button
             href='/authentication/login'

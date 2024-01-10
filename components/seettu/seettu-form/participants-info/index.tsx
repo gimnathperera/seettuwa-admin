@@ -1,9 +1,8 @@
 import SelectInput from '@/components/shared/select-input';
 import { userStatusOptions } from '@/types/user-management';
 import AddIcon from '@mui/icons-material/Add';
-import { Button, Grid, IconButton } from '@mui/material';
-import { TabProps } from './basic-info';
-import MoreVertIcon from '@mui/icons-material/MoreVert';
+import AdminPanelSettingsIcon from '@mui/icons-material/AdminPanelSettings';
+import { Button, Grid } from '@mui/material';
 import Avatar from '@mui/material/Avatar';
 import List from '@mui/material/List';
 import ListItem from '@mui/material/ListItem';
@@ -11,7 +10,8 @@ import ListItemAvatar from '@mui/material/ListItemAvatar';
 import ListItemButton from '@mui/material/ListItemButton';
 import ListItemText from '@mui/material/ListItemText';
 import { FC } from 'react';
-import AdminPanelSettingsIcon from '@mui/icons-material/AdminPanelSettings';
+import { TabProps } from '../basic-info';
+import ParticipantAction from '../participant-action-menu';
 
 const MemberList: FC = () => {
   return (
@@ -20,24 +20,16 @@ const MemberList: FC = () => {
         const labelId = `checkbox-list-secondary-label-${value}`;
 
         return (
-          <ListItem
-            key={value}
-            secondaryAction={
-              <IconButton aria-label='comment'>
-                <MoreVertIcon />
-              </IconButton>
-            }
-            disablePadding
-          >
+          <ListItem key={value} secondaryAction={<ParticipantAction />} disablePadding>
             <ListItemButton>
               <ListItemAvatar>
                 <Avatar
                   alt={`Avatar n°${value + 1}`}
-                  src={`/static/images/avatar/${value + 1}.jpg`}
+                  src='/images/profile/user-1.jpg'
                   variant='rounded'
                 />
               </ListItemAvatar>
-              <ListItemText id={labelId} primary={`Line item ${value + 1}`} />
+              <ListItemText id={labelId} primary={`Participant ${value + 1}`} />
               {value === 0 && <AdminPanelSettingsIcon />}
             </ListItemButton>
           </ListItem>
@@ -47,7 +39,7 @@ const MemberList: FC = () => {
   );
 };
 
-const AccountInfo = ({ register, control }: TabProps): JSX.Element => {
+const ParticipantsInfo = ({ register, control }: TabProps): JSX.Element => {
   return (
     <Grid container spacing={2}>
       <Grid item container alignItems='center' justifyContent='space-between'>
@@ -72,4 +64,4 @@ const AccountInfo = ({ register, control }: TabProps): JSX.Element => {
   );
 };
 
-export default AccountInfo;
+export default ParticipantsInfo;

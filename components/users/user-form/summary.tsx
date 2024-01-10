@@ -1,14 +1,14 @@
-import { maskPassword } from '@/utils/functions/format';
-import { formatDate } from '@/utils/functions';
 import KeyValueItem from '@/components/shared/key-value-item';
+import { formatDate } from '@/utils/functions';
+import { maskPassword } from '@/utils/functions/format';
 // import PersonIcon from '@mui/icons-material/Person';
+import { User } from '@/types/user-management';
 import {
   // Avatar,
   Grid,
   Typography,
 } from '@mui/material';
 import { UseFormWatch } from 'react-hook-form';
-import { User } from '@/types/user-management';
 
 type Summary = {
   watch: UseFormWatch<User>;
@@ -64,7 +64,7 @@ const Summary = ({ watch }: Summary): JSX.Element => {
       <Grid item xs={6}>
         <KeyValueItem label='Date of birth' value={formatDate(dob)} />
       </Grid>
-      <Grid item xs={12}>
+      <Grid item xs={12} mt={2}>
         <Typography variant='body2' fontWeight={600} sx={{ textDecoration: 'underline' }}>
           Account Info
         </Typography>

@@ -10,6 +10,7 @@ export interface Seettu {
   type: SeettuTypes;
   members: any[];
   member: string;
+  totalAmount: number;
 }
 
 export enum SeettuTypes {

@@ -1,5 +1,5 @@
-import { upperFirst, toLower, isNull, isUndefined, isNumber } from 'lodash-es';
 import { formatDate, isDate } from '@/utils/functions';
+import { isNull, isNumber, isUndefined, toLower, upperFirst } from 'lodash-es';
 
 export const formatCurrency = (amount: number, defaultValue: '-' | '' = '-'): string => {
   if (isUndefined(amount) || isNull(amount) || isNaN(amount)) return defaultValue;
@@ -31,6 +31,7 @@ export const getStringValue = (
 ): string => {
   if (isUndefined(value) || isNull(value) || value == '' || value == 'undefined')
     return defaultValue;
+
   if (isNumber(value)) return value.toString();
   if (isDate(value)) return formatDate(value);
 

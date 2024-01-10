@@ -12,6 +12,7 @@ import {
 import SeettuCreateForm from '@/components/seettu/seettu-form';
 import { seettu } from '@/data/seettu';
 import { formatCurrency, formatDate } from '@/utils/functions';
+import AddIcon from '@mui/icons-material/Add';
 import { Box, Button, Grid, Typography } from '@mui/material';
 import LinearProgress from '@mui/material/LinearProgress';
 import Tooltip from '@mui/material/Tooltip';
@@ -19,7 +20,6 @@ import { GridCellParams, GridColDef, useGridApiRef } from '@mui/x-data-grid';
 import Link from 'next/link';
 import { useRouter } from 'next/navigation';
 import { FC, useState } from 'react';
-import AddIcon from '@mui/icons-material/Add';
 
 const Seettu: FC = () => {
   const gridApiRef = useGridApiRef();

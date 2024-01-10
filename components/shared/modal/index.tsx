@@ -1,11 +1,12 @@
-import { Ref, forwardRef, ReactElement, useRef, useMemo, ReactNode } from 'react';
 import { Box, Breakpoint, Button, Dialog } from '@mui/material';
 import Fade, { FadeProps } from '@mui/material/Fade';
+import { ReactElement, ReactNode, Ref, forwardRef, useMemo, useRef } from 'react';
 
-import { ModalContent, CloseButton, ModalHeader, ModalActions } from './styles';
+import { CloseButton, ModalActions, ModalContent, ModalHeader } from './styles';
 
-import SectionHeader from '../section-header';
 import { AsyncButton } from '@/components';
+import CloseIcon from '@mui/icons-material/Close';
+import SectionHeader from '../section-header';
 
 const Transition = forwardRef(function Transition(
   props: FadeProps & { children?: ReactElement<any, any> },
@@ -72,7 +73,7 @@ const Modal = ({
       {...rest}
     >
       <ModalContent>
-        <CloseButton color='error' size='small' icon='❌' onClick={handleOnClickClose} />
+        <CloseButton color='error' size='small' icon={<CloseIcon />} onClick={handleOnClickClose} />
 
         <ModalHeader>
           {typeof title === 'string' ? <SectionHeader title={title} /> : <>{title}</>}

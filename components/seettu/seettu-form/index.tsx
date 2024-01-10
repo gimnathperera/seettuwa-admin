@@ -1,14 +1,14 @@
 import { Box, Button, DialogActions, Step, StepButton, Stepper } from '@mui/material';
 
 import AsyncButton from '@/components/shared/buttons/async-button';
+import { Seettu } from '@/types/seettu-management';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { FC, useState } from 'react';
 import { useForm } from 'react-hook-form';
-import { SeettuFormSchema } from './schema';
-import Summary from './summary';
 import BasicInfo from './basic-info';
 import ParticipantsInfo from './participants-info';
-import { Seettu } from '@/types/seettu-management';
+import { SeettuFormSchema } from './schema';
+import Summary from './summary';
 
 const steps = ['Basic Info', 'Participants Info', 'Summary'];
 

@@ -1,20 +1,31 @@
-import { Grid, TextField } from '@mui/material';
 import { DateInput } from '@/components';
+import { Grid, InputAdornment, TextField } from '@mui/material';
 
-import { UseFormRegister } from 'react-hook-form';
-import { Seettu, seettuStatusOptions, seettuTypeOptions } from '@/types/seettu-management';
 import SelectInput from '@/components/shared/select-input';
+import { Seettu, seettuStatusOptions, seettuTypeOptions } from '@/types/seettu-management';
+import { UseFormRegister } from 'react-hook-form';
 
 export type TabProps = {
   register: UseFormRegister<Seettu>;
   control: any;
 };
 
-const PersonalInfo = ({ register, control }: TabProps): JSX.Element => {
+const BasicInfo = ({ register, control }: TabProps): JSX.Element => {
   return (
     <Grid container spacing={2}>
-      <Grid item xs={12}>
+      <Grid item xs={6}>
         <TextField label='Seettu Name' variant='outlined' fullWidth {...register('seettuName')} />
+      </Grid>
+      <Grid item xs={6}>
+        <TextField
+          label='Total Amount'
+          variant='outlined'
+          fullWidth
+          {...register('totalAmount')}
+          InputProps={{
+            startAdornment: <InputAdornment position='start'>$</InputAdornment>,
+          }}
+        />
       </Grid>
       <Grid item xs={6}>
         <SelectInput
@@ -55,4 +66,4 @@ const PersonalInfo = ({ register, control }: TabProps): JSX.Element => {
   );
 };
 
-export default PersonalInfo;
+export default BasicInfo;

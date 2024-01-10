@@ -1,19 +1,17 @@
-import { FC, ReactNode } from 'react';
-import { Grid, Typography } from '@mui/material';
 import { getStringValue } from '@/utils/functions';
+import { Grid, Typography } from '@mui/material';
+import { FC, ReactNode } from 'react';
 
 type Props = {
   label: string;
-  value: string | number | null | undefined | ReactNode;
+  value: string | number | null | undefined | ReactNode | Date;
   color?: string;
   align?: 'left' | 'right' | 'center';
+  defaultValue?: string;
 };
 
 const KeyValueItem: FC<Props> = ({ label, value, color, align = 'left', ...rest }) => {
-  const formattedValue =
-    typeof value !== 'string' && typeof value !== 'number'
-      ? value
-      : getStringValue(value as string | number);
+  const formattedValue = getStringValue(value as string | number);
 
   return (
     <Grid

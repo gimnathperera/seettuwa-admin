@@ -1,15 +1,15 @@
+import CardContent from '@mui/material/CardContent';
 import CardHeader from '@mui/material/CardHeader';
 import Typography from '@mui/material/Typography';
-import CardContent from '@mui/material/CardContent';
 
 import { DataTable, SeettuStatus } from '@/components';
+import { seettu } from '@/data/seettu';
+import { formatCurrency, formatDate } from '@/utils/functions';
 import { Box, LinearProgress, Link, Tooltip } from '@mui/material';
 import { GridCellParams, GridColDef, useGridApiRef } from '@mui/x-data-grid';
 import { StyledCard } from './styles';
-import { formatCurrency, formatDate } from '@/utils/functions';
-import { seettu } from '@/data/seettu';
 
-const ProfileSeettuList = (): JSX.Element => {
+const SeettuUserList = (): JSX.Element => {
   const gridApiRef = useGridApiRef();
 
   const columns: GridColDef[] = [
@@ -156,4 +156,4 @@ const ProfileSeettuList = (): JSX.Element => {
   );
 };
 
-export default ProfileSeettuList;
+export default SeettuUserList;

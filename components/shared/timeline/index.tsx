@@ -1,14 +1,14 @@
-import Box from '@mui/material/Box';
-import { styled } from '@mui/material/styles';
+import MuiTimeline, { TimelineProps } from '@mui/lab/Timeline';
+import TimelineConnector from '@mui/lab/TimelineConnector';
+import TimelineContent from '@mui/lab/TimelineContent';
 import TimelineDot from '@mui/lab/TimelineDot';
 import TimelineItem from '@mui/lab/TimelineItem';
+import TimelineSeparator from '@mui/lab/TimelineSeparator';
+import Box from '@mui/material/Box';
+import CardContent from '@mui/material/CardContent';
 import CardHeader from '@mui/material/CardHeader';
 import Typography from '@mui/material/Typography';
-import CardContent from '@mui/material/CardContent';
-import TimelineContent from '@mui/lab/TimelineContent';
-import TimelineSeparator from '@mui/lab/TimelineSeparator';
-import TimelineConnector from '@mui/lab/TimelineConnector';
-import MuiTimeline, { TimelineProps } from '@mui/lab/Timeline';
+import { styled } from '@mui/material/styles';
 import { StyledCard } from './styles';
 
 const Timeline = styled(MuiTimeline)<TimelineProps>({
@@ -22,7 +22,7 @@ const Timeline = styled(MuiTimeline)<TimelineProps>({
   },
 });
 
-const ProfileTimeLine = (): JSX.Element => {
+const TimeLine = (): JSX.Element => {
   return (
     <StyledCard>
       <CardHeader
@@ -111,4 +111,4 @@ const ProfileTimeLine = (): JSX.Element => {
   );
 };
 
-export default ProfileTimeLine;
+export default TimeLine;

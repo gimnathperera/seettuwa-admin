@@ -2,6 +2,7 @@ import { IconButton } from '@/components';
 import DeleteIcon from '@mui/icons-material/Delete';
 import MoreVertIcon from '@mui/icons-material/MoreVert';
 import SecurityIcon from '@mui/icons-material/Security';
+import SendIcon from '@mui/icons-material/Send';
 import MenuItem from '@mui/material/MenuItem';
 import { FC, MouseEvent, useState } from 'react';
 import { StyledMenu } from './styles';
@@ -28,6 +29,11 @@ const ParticipantAction: FC<Props> = ({ handleOnDelete }) => {
         <MenuItem onClick={handleClose} disableRipple>
           <SecurityIcon />
           Make as owner
+        </MenuItem>
+
+        <MenuItem onClick={handleOnDelete} disableRipple>
+          <SendIcon />
+          Send Message
         </MenuItem>
 
         <MenuItem onClick={handleOnDelete} disableRipple>

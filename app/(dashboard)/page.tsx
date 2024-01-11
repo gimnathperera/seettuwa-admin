@@ -1,6 +1,6 @@
 'use client';
+import { PageContainer, ProductPerformance, RecentTransactions } from '@/components';
 import { Grid } from '@mui/material';
-import { PageContainer, RecentTransactions, ProductPerformance } from '@/components';
 
 const Dashboard = (): JSX.Element => {
   return (

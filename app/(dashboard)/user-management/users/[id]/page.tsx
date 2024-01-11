@@ -1,15 +1,15 @@
 'use client';
 
-import { FC } from 'react';
-import Grid from '@mui/material/Grid';
 import {
   PageContainer,
   ProfileConnections,
   ProfileOverview,
   ProfileSeettuList,
-  ProfileTimeLine,
+  TimeLine,
   UserProfileHeader,
 } from '@/components';
+import Grid from '@mui/material/Grid';
+import { FC } from 'react';
 
 const data = {
   about: [
@@ -168,7 +168,7 @@ const UserProfile: FC = () => {
               />
             </Grid>
             <Grid item lg={8} md={7} xs={12}>
-              <ProfileTimeLine />
+              <TimeLine />
             </Grid>
           </Grid>
         </Grid>
